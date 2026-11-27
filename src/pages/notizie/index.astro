@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { byDateDesc, data, pubblicato } from '../../lib/format';
+import { thumb } from '../../lib/media';
+
+const notizie = (await getCollection('notizie', pubblicato)).sort(byDateDesc);
+---
+<Base title="Notizie" description="Il diario del Pedale Bolognese: racconti di uscite, gite ed eventi.">
+  <div class="contenitore intestazione-pagina">
+    <h1>Notizie dal gruppo</h1>
+  </div>
+  <div class="contenitore">
+    {notizie.length === 0 && <p class="avviso">Ancora nessuna notizia: la prima si scrive dal pannello, sezione “Notizie”.</p>}
+    <div class="griglia">
+      {notizie.map((n) => (
+        <a class="scheda" href={`/notizie/${n.id}/`}>
+          {n.data.cover && <img class="scheda__img" src={thumb(n.data.cover)} alt="" loading="lazy" />}
+          <div class="scheda__corpo">
+            <span class="scheda__data">{data(n.data.date)} {n.data.bozza && <span class="etichetta">bozza</span>}</span>
+            <h3>{n.data.title}</h3>
+            {n.data.sommario && <p class="piccolo muto">{n.data.sommario}</p>}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

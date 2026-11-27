@@ -1,0 +1,20 @@
+---
+title: "Gita a Ferrara e Granfondo di Portomaggiore"
+date: "2019-03-31"
+cover: "/media/2019/04/f919d665-4a2d-401d-b1dc-704057d4618c.jpg"
+photos:
+  - "/media/2019/04/f919d665-4a2d-401d-b1dc-704057d4618c.jpg"
+  - "/media/2019/04/e314799a-fbd9-4769-bd7c-b93ff49cb93e.jpg"
+  - "/media/2019/04/37288bdb-ac88-4bce-9134-7dff60021ae6.jpg"
+  - "/media/2019/04/a4385ddb-b9ca-4a38-b962-3d31482ec18a.jpg"
+  - "/media/2019/04/92eedec4-841b-42e1-85c6-8931b3d7a09d.jpg"
+  - "/media/2019/04/IMG_2891.jpg"
+  - "/media/2019/04/IMG_2893.jpg"
+  - "/media/2019/04/IMG_2896.jpg"
+  - "/media/2019/04/IMG_2900.jpg"
+  - "/media/2019/04/IMG_2901.jpg"
+  - "/media/2019/04/IMG_2903.jpg"
+  - "/media/2019/04/IMG_2909.jpg"
+  - "/media/2019/04/IMG_2913.jpg"
+  - "/media/2019/04/IMG_2912.jpg"
+---

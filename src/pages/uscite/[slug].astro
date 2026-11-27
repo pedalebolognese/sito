@@ -1,0 +1,71 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SchedaGalleria from '../../components/SchedaGalleria.astro';
+import { data, pubblicato } from '../../lib/format';
+import { original } from '../../lib/media';
+import { usciteToEvento, percorsiCompleti } from '../../lib/uscite';
+import MappaTraccia from '../../components/MappaTraccia.astro';
+import { ora } from '../../lib/format';
+
+export async function getStaticPaths() {
+  const uscite = await getCollection('uscite', pubblicato);
+  return uscite.map((u) => ({ params: { slug: u.id }, props: { u } }));
+}
+const { u } = Astro.props;
+const e = usciteToEvento(u);
+const { Content } = await render(u);
+const percorsi = percorsiCompleti(u);
+const galleria = u.data.galleria ? await getEntry('gallerie', u.data.galleria) : undefined;
+const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.location ?? '')}`;
+---
+<Base title={u.data.title} description={`${u.data.tipo} del ${data(u.data.date)}`}>
+  <div class="stretto intestazione-pagina">
+    <p class="briciole"><a href="/calendario/">Calendario</a> · {u.data.tipo}</p>
+    <h1>{u.data.title} {u.data.annullata && <span class="etichetta etichetta--rossa">Annullata</span>}</h1>
+  </div>
+  <div class="stretto">
+    <div class="riquadro">
+      <p style="margin-top:0">
+        <strong style="text-transform:capitalize">{new Intl.DateTimeFormat('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Rome' }).format(e.start)}</strong>
+        {!e.allDay && <> · ritrovo ore <strong>{ora(e.start)}</strong></>}
+      </p>
+      <p>📍 <a href={maps} target="_blank" rel="noopener">{e.location}</a></p>
+      {u.data.campionato && <p><span class="etichetta">Valida per il campionato sociale</span></p>}
+      {percorsi.length > 0 && (
+        <table class="tabella" style="margin-top:1rem">
+          <thead><tr><th>Percorso</th><th>Km</th><th>Dislivello</th><th>Traccia</th></tr></thead>
+          <tbody>
+            {percorsi.map((p) => (
+              <tr>
+                <td>{p.nome ?? '—'}</td>
+                <td>{p.km ?? '—'}</td>
+                <td>{p.dislivello ? `${p.dislivello} m` : '—'}</td>
+                <td>
+                  {p.gpx && <a href={original(p.gpx)} download>GPX</a>}
+                  {p.gpx && p.link && ' · '}
+                  {p.link && <a href={p.link} target="_blank" rel="noopener">mappa</a>}
+                  {!p.gpx && !p.link && '—'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+    {percorsi.filter((p) => p.traccia).map((p) => (
+      <section>
+        {percorsi.filter((q) => q.traccia).length > 1 && <h2>{p.nome ?? 'Percorso'}</h2>}
+        <MappaTraccia t={p.traccia!} nome={p.nome} gpx={original(p.gpx)} />
+      </section>
+    ))}
+    <article class="prosa" style="margin-top:1.5rem"><Content /></article>
+    {galleria && (
+      <>
+        <h2>Le foto</h2>
+        <div class="griglia"><SchedaGalleria g={galleria} /></div>
+      </>
+    )}
+    <p style="margin-top:2rem"><a class="btn btn--bordo" href="/calendario/">← Tutto il calendario</a></p>
+  </div>
+</Base>

@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Evento from '../components/Evento.astro';
+import { prossimiEventi } from '../lib/google';
+import { tutteLeUscite } from '../lib/uscite';
+import { oggi } from '../lib/tempo';
+import { mese } from '../lib/format';
+
+// Stagione in corso: le uscite di quest'anno (anche passate) + tutte le future
+const da = oggi();
+const inizioAnno = new Date(Date.UTC(da.getUTCFullYear(), 0, 1));
+const uscite = (await tutteLeUscite()).filter((e) => e.start >= inizioAnno || e.start >= da);
+const google = await prossimiEventi(80);
+const eventi = [...uscite, ...google].sort((a, b) => a.start.getTime() - b.start.getTime());
+const perMese = Map.groupBy(eventi, (e) => mese(e.start));
+const prossima = eventi.find((e) => (e.end ?? e.start) >= da && !e.annullata);
+
+const icsHttps = new URL('/calendario.ics', Astro.site).href;
+const webcal = icsHttps.replace(/^https:/, 'webcal:');
+const googleAdd = `https://calendar.google.com/calendar/render?cid=${encodeURIComponent(webcal)}`;
+const altroCalendario = import.meta.env.PUBLIC_CALENDAR_SUBSCRIBE;
+---
+<Base title="Calendario uscite" description="Il programma delle uscite domenicali e delle gite del Pedale Bolognese.">
+  <div class="stretto intestazione-pagina">
+    <h1>Calendario uscite</h1>
+    <p class="muto">Il programma può cambiare per meteo o imprevisti: controlla sempre prima di partire.</p>
+    <details class="riquadro" style="margin-top:1rem">
+      <summary style="cursor:pointer; font-weight:600">📅 Aggiungi il calendario al tuo telefono</summary>
+      <p>Le uscite compaiono nel calendario del telefono e si aggiornano da sole quando cambiano.</p>
+      <p>
+        <a class="btn" href={webcal}>iPhone / Outlook</a>
+        <a class="btn btn--bordo" href={googleAdd} target="_blank" rel="noopener">Google Calendar / Android</a>
+        {altroCalendario && <a class="btn btn--bordo" href={altroCalendario} target="_blank" rel="noopener">Calendario Google del club</a>}
+      </p>
+      <p class="piccolo muto">Oppure copia questo indirizzo nel tuo calendario: <code>{icsHttps}</code></p>
+    </details>
+  </div>
+  <div class="stretto">
+    {eventi.length === 0 && (
+      <p class="avviso">
+        Il calendario della stagione non è ancora stato pubblicato. Nel frattempo trovi il programma nella pagina
+        <a href="/programma-ciclistico/">Programma ciclistico</a>.
+      </p>
+    )}
+    {[...perMese].map(([m, lista]) => (
+      <section>
+        <h2 style="text-transform: capitalize">{m}</h2>
+        {lista.map((e) => <Evento e={e} passata={(e.end ?? e.start) < da && e !== prossima} />)}
+      </section>
+    ))}
+  </div>
+</Base>

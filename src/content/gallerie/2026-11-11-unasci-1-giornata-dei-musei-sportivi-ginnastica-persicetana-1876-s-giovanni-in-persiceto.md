@@ -1,0 +1,20 @@
+---
+title: "UNASCI – 1^ Giornata dei Musei Sportivi – Ginnastica Persicetana 1876 – S. Giovanni in Persiceto"
+date: "2026-11-11"
+cover: "/media/2026/11/IMG_20261111_112106_2.jpg"
+photos:
+  - "/media/2026/11/IMG_20261111_105323_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_105324_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_105325_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_105326_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_105327_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_110117_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_110132_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_110133_2.jpg"
+  - "/media/2026/11/IMG_20261111_110134_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_110135_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_111331_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_111603_2-scaled.jpg"
+  - "/media/2026/11/IMG_20261111_112106_2-scaled.jpg"
+  - "/media/2026/11/Screenshot_2026-11-13-10-08-57-048_com.google.android.apps_.photos.jpg"
+---

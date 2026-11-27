@@ -1,0 +1,21 @@
+---
+title: "In ricordo di Calogero Caputo, per tutti Santo"
+date: "2025-08-03"
+cover: "/media/2025/09/IMG_20240622_142704_2.jpg"
+photos:
+  - "/media/2025/09/IMG-20250803-WA0011.jpg"
+  - "/media/2025/09/IMG_20230326_112019_BURST002-Copia_1.jpg"
+  - "/media/2025/09/IMG-20231008-WA0046_1.jpg"
+  - "/media/2025/09/IMG-20250803-WA0006_1.jpg"
+  - "/media/2025/09/IMG_20230416_143125_1-scaled.jpg"
+  - "/media/2025/09/IMG_20230527_132946_1.jpg"
+  - "/media/2025/09/IMG_20240421_103532_1.jpg"
+  - "/media/2025/09/IMG_20240208_132802_2.jpg"
+  - "/media/2025/09/IMG-20230924-WA0006_1.jpg"
+  - "/media/2025/09/IMG_20240127_111023_1-scaled.jpg"
+  - "/media/2025/09/IMG-20220624-WA0000_1.jpg"
+  - "/media/2025/09/IMG-20250803-WA0005_2.jpg"
+  - "/media/2025/09/IMG_20240622_142704_2.jpg"
+  - "/media/2025/09/IMG_20240622_142704_1-scaled.jpg"
+  - "/media/2025/09/IMG-20250804-WA0000.jpg"
+---

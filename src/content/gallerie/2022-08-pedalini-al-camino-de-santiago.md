@@ -1,0 +1,28 @@
+---
+title: "Pedalini al Camino de Santiago"
+date: "2022-08-26"
+data_certa: false
+cover: "/media/2022/12/IMG-20220831-WA0012.jpg"
+photos:
+  - "/media/2022/12/IMG-20220822-WA0012.jpg"
+  - "/media/2022/12/IMG-20220822-WA0020.jpg"
+  - "/media/2022/12/IMG-20220823-WA0010.jpg"
+  - "/media/2022/12/IMG-20220823-WA0018.jpg"
+  - "/media/2022/12/IMG-20220823-WA0019.jpg"
+  - "/media/2022/12/IMG-20220824-WA0005.jpg"
+  - "/media/2022/12/IMG-20220824-WA0007.jpg"
+  - "/media/2022/12/IMG-20220824-WA0010.jpg"
+  - "/media/2022/12/IMG-20220824-WA0011.jpg"
+  - "/media/2022/12/IMG-20220826-WA0011.jpg"
+  - "/media/2022/12/IMG-20220826-WA0012.jpg"
+  - "/media/2022/12/IMG-20220826-WA0013.jpg"
+  - "/media/2022/12/IMG-20220826-WA0014.jpg"
+  - "/media/2022/12/IMG-20220826-WA0016.jpg"
+  - "/media/2022/12/IMG-20220827-WA0001.jpg"
+  - "/media/2022/12/IMG-20220827-WA0007.jpg"
+  - "/media/2022/12/IMG-20220827-WA0008.jpg"
+  - "/media/2022/12/IMG-20220827-WA0012.jpg"
+  - "/media/2022/12/IMG-20220831-WA0008.jpg"
+  - "/media/2022/12/IMG-20220831-WA0011.jpg"
+  - "/media/2022/12/IMG-20220831-WA0012.jpg"
+---

@@ -1,0 +1,13 @@
+# Indirizzi del vecchio sito WordPress -> nuovo sito
+# (le pagine, /foto/, /comunicati/ e /galleria/<nome>/ hanno lo stesso indirizzo di prima)
+
+# Foto e PDF linkati da fuori (WhatsApp, email, Facebook): vanno all'archivio su R2.
+# TODO: sostituire foto.pedalebolognese.it con il dominio scelto per il bucket R2.
+/wp-content/uploads/* https://foto.pedalebolognese.it/media/:splat 301
+
+# Libri sfogliabili e altre vecchie sezioni
+/3d-flip-book/* /i-libri/ 301
+/home/ / 301
+/wp-admin /admin/ 302
+/wp-login.php /admin/ 302
+/feed/ / 301

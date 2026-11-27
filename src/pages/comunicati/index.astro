@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { anno, byDateDesc, dataSmart, pubblicato } from '../../lib/format';
+import { original, full } from '../../lib/media';
+
+const comunicati = (await getCollection('comunicati', pubblicato)).sort(byDateDesc);
+const perAnno = Map.groupBy(comunicati, (c) => anno(c.data.date));
+const corpi = new Map(
+  await Promise.all(comunicati.filter((c) => c.body?.trim()).map(async (c) => [c.id, (await render(c)).Content] as const)),
+);
+---
+<Base title="Comunicati" description="Comunicati, convocazioni e locandine del Pedale Bolognese.">
+  <div class="stretto intestazione-pagina">
+    <h1>Comunicati</h1>
+    <p class="muto">Convocazioni, tesseramento, locandine delle feste e delle gite.</p>
+  </div>
+  <div class="stretto">
+    {[...perAnno].map(([y, lista]) => (
+      <section>
+        <h2>{y}</h2>
+        <ul class="elenco">
+          {lista.map((c) => {
+            const Corpo = corpi.get(c.id);
+            return (
+              <li style="flex-direction: column; align-items: stretch; gap: .35rem">
+                <div style="display:flex; justify-content:space-between; gap:1rem">
+                  {c.data.pdf
+                    ? <a href={original(c.data.pdf)} target="_blank">{c.data.title} <span class="etichetta">PDF</span></a>
+                    : <strong>{c.data.title}</strong>}
+                  <span class="data">{dataSmart(c.data.date)}</span>
+                </div>
+                {c.data.immagine && <img src={full(c.data.immagine)} alt="" loading="lazy" style="border-radius:8px; max-height: 28rem; width:auto" />}
+                {Corpo && <div class="prosa piccolo"><Corpo /></div>}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>

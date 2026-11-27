@@ -1,0 +1,20 @@
+---
+title: "Da Chieti, Passo Lanciano, Maielletta, Blochkaus"
+date: "2025-08-21"
+cover: "/media/2025/09/IMG_20250821_101408_1.jpg"
+photos:
+  - "/media/2025/09/IMG_20250821_101408_1-scaled.jpg"
+  - "/media/2025/09/IMG_20250822_095338_1-scaled.jpg"
+  - "/media/2025/09/IMG_20250822_095353_1-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_072317_1-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_112636_1-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_113201_1-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_122358-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_181812-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_123912_1-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_131017_1-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_131102_1-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_131722_1-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_131854-scaled.jpg"
+  - "/media/2025/09/IMG_20250821_140406_1-scaled.jpg"
+---

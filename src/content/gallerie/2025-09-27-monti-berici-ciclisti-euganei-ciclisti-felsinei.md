@@ -1,0 +1,23 @@
+---
+title: "Monti Berici – ” Ciclisti Euganei & Ciclisti Felsinei “"
+date: "2025-09-27"
+cover: "/media/2025/10/DSC_2407-scaled-1.jpg"
+photos:
+  - "/media/2025/10/DSC_2355.webp"
+  - "/media/2025/10/DSC_2360.jpg"
+  - "/media/2025/10/DSC_2407-scaled-1.jpg"
+  - "/media/2025/10/DSC_2452.webp"
+  - "/media/2025/10/IMG_20250927_105739-scaled.jpg"
+  - "/media/2025/10/IMG_20250927_105831_1-scaled.jpg"
+  - "/media/2025/10/IMG_20250927_110221_1-scaled.jpg"
+  - "/media/2025/10/IMG_20250927_110232_1-scaled.jpg"
+  - "/media/2025/10/IMG_20250927_115042-scaled.jpg"
+  - "/media/2025/10/IMG_20250927_140219.jpg"
+  - "/media/2025/10/IMG_20250927_140352-scaled.jpg"
+  - "/media/2025/10/IMG_20250927_140526-scaled.jpg"
+  - "/media/2025/10/IMG_20250927_140713-scaled.jpg"
+  - "/media/2025/10/IMG_20250927_174741.jpg"
+  - "/media/2025/10/PANO_20250927_105757_1-scaled.jpg"
+  - "/media/2025/10/WhatsApp-Image-2025-09-27-at-15.42.28.jpeg"
+  - "/media/2025/10/WhatsApp-Image-2025-09-27-at-15.42.29.jpeg"
+---

@@ -1,0 +1,21 @@
+---
+title: "Gita d’apertura"
+date: "2012-03-11"
+cover: "/media/2017/02/Gita-di-apertura-2012-001.jpg"
+photos:
+  - "/media/2017/02/Gita-di-apertura-2012-001.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-003.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-008.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-009.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-010.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-012.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-014.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-015.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-017.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-018.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-019.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-020.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-022.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-023.jpg"
+  - "/media/2017/02/Gita-di-apertura-2012-024.jpg"
+---

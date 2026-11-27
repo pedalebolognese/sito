@@ -1,0 +1,23 @@
+---
+title: "Rendez-vous dei Pedalini con ASD Le Terme ad Occhiobello"
+date: "2024-10-26"
+cover: "/media/2024/11/IMG-20241026-WA0003_1.jpg"
+photos:
+  - "/media/2024/11/IMG-20241026-WA0008.jpg"
+  - "/media/2024/11/IMG-20241026-WA0014.jpg"
+  - "/media/2024/11/IMG-20241026-WA0022.jpg"
+  - "/media/2024/11/IMG-20241026-WA0003_1.jpg"
+  - "/media/2024/11/IMG-20241026-WA0043_1.jpg"
+  - "/media/2024/11/IMG-20241026-WA0026_1.jpg"
+  - "/media/2024/11/IMG-20241026-WA0044_1.jpg"
+  - "/media/2024/11/IMG-20241026-WA0045.jpg"
+  - "/media/2024/11/Immagine-2024-10-27-170912.jpg"
+  - "/media/2024/11/IMG-20241026-WA0046_1.jpg"
+  - "/media/2024/11/IMG-20241026-WA0038.jpg"
+  - "/media/2024/11/IMG-20241026-WA0009.jpg"
+  - "/media/2024/11/IMG-20241026-WA0019.jpg"
+  - "/media/2024/11/IMG-20241026-WA0016.jpg"
+  - "/media/2024/11/IMG-20241026-WA0023.jpg"
+  - "/media/2024/11/IMG-20241026-WA0040.jpg"
+  - "/media/2024/11/IMG-20241026-WA0021.jpg"
+---

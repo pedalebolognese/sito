@@ -1,0 +1,70 @@
+---
+import { site, menu, menuSecondario, iscriviti } from '../config/site';
+import { full } from '../lib/media';
+
+const path = Astro.url.pathname;
+const attivo = (href?: string) => (href && href !== '/' && path.startsWith(href) ? 'page' : undefined);
+const esterno = (href?: string) => (href?.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {});
+---
+<header class="testata">
+  <div class="contenitore testata__barra">
+    <a class="marchio" href="/">
+      <img src={full(site.logo)} alt="" width="48" height="48" />
+      <span>
+        <span class="marchio__nome">{site.breve}</span>
+        <span class="marchio__anno">DAL {site.fondazione}</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Menu principale">
+      <ul>
+        {menu.map((voce) =>
+          voce.children ? (
+            <li>
+              <details name="menu">
+                <summary>{voce.label}</summary>
+                <ul>
+                  {voce.children.map((c) => (
+                    <li><a href={c.href} aria-current={attivo(c.href)} {...esterno(c.href)}>{c.label}</a></li>
+                  ))}
+                </ul>
+              </details>
+            </li>
+          ) : (
+            <li><a href={voce.href} aria-current={attivo(voce.href)}>{voce.label}</a></li>
+          )
+        )}
+      </ul>
+      <a class="btn btn--rosso" href={iscriviti.href}>{iscriviti.label}</a>
+    </nav>
+
+    <details class="menu-mobile">
+      <summary>Menu</summary>
+      <div class="menu-mobile__pannello">
+        {menu.map((voce) =>
+          voce.children ? (
+            <>
+              <h3>{voce.label}</h3>
+              <ul>{voce.children.map((c) => <li><a href={c.href} {...esterno(c.href)}>{c.label}</a></li>)}</ul>
+            </>
+          ) : (
+            <ul><li><a href={voce.href}>{voce.label}</a></li></ul>
+          )
+        )}
+        <h3>Link utili</h3>
+        <ul>{menuSecondario.map((c) => <li><a href={c.href} {...esterno(c.href)}>{c.label}</a></li>)}</ul>
+        <a class="btn btn--rosso" href={iscriviti.href}>{iscriviti.label}</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<script>
+  // Chiude i sottomenu cliccando fuori o premendo Esc
+  const chiudi = (escludi?: Element | null) =>
+    document.querySelectorAll('.nav details[open], .menu-mobile[open]').forEach((d) => {
+      if (d !== escludi && !d.contains(escludi ?? null)) d.removeAttribute('open');
+    });
+  document.addEventListener('click', (e) => chiudi((e.target as Element).closest('details')));
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && chiudi());
+</script>

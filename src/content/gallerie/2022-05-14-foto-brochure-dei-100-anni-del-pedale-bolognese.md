@@ -1,0 +1,22 @@
+---
+title: "Foto Brochure dei 100 anni del Pedale Bolognese"
+date: "2022-05-14"
+cover: "/media/2023/05/pedale_965.jpg"
+photos:
+  - "/media/2023/05/pedale_940.jpg"
+  - "/media/2023/05/pedale_945.jpg"
+  - "/media/2023/05/pedale_948.jpg"
+  - "/media/2023/05/pedale_955.jpg"
+  - "/media/2023/05/pedale_956.jpg"
+  - "/media/2023/05/pedale_962.jpg"
+  - "/media/2023/05/pedale_965.jpg"
+  - "/media/2023/05/pedale_975.jpg"
+  - "/media/2023/05/pedale_1000.jpg"
+  - "/media/2023/05/pedale_1001.jpg"
+  - "/media/2023/05/pedale_1017.jpg"
+  - "/media/2023/05/pedale_1067.jpg"
+  - "/media/2023/05/pedale_1088_1.jpg"
+  - "/media/2023/05/pedale_1089.jpg"
+  - "/media/2023/05/pedale_1206.jpg"
+  - "/media/2023/05/pedale_1271.jpg"
+---

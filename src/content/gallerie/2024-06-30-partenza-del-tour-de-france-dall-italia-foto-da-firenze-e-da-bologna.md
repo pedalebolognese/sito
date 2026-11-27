@@ -1,0 +1,23 @@
+---
+title: "Partenza del Tour de France dall’ Italia – Foto da Firenze e da Bologna"
+date: "2024-06-30"
+cover: "/media/2024/10/IMG_20240630_150034_1.jpg"
+photos:
+  - "/media/2024/10/IMG-20240701-WA0008.jpg"
+  - "/media/2024/10/IMG-20240701-WA0006.jpg"
+  - "/media/2024/10/IMG-20240701-WA0007.jpg"
+  - "/media/2024/10/IMG_20240704_095735-scaled.jpg"
+  - "/media/2024/10/IMG_20240702_192121-scaled.jpg"
+  - "/media/2024/10/IMG_20240704_100818-scaled.jpg"
+  - "/media/2024/10/IMG-20240625-WA0001.jpg"
+  - "/media/2024/10/IMG_20240629_110939-1-scaled.jpg"
+  - "/media/2024/10/IMG-20240625-WA0000.jpg"
+  - "/media/2024/10/IMG-20240629-WA0000.jpg"
+  - "/media/2024/10/IMG-20240630-WA0018.jpg"
+  - "/media/2024/10/IMG-20240629-WA0001_1.jpg"
+  - "/media/2024/10/IMG-20240630-WA0024_1.jpg"
+  - "/media/2024/10/DSC2226-scaled.jpg"
+  - "/media/2024/10/IMG_20240630_150034_1.jpg"
+  - "/media/2024/10/IMG_20240630_225948-scaled.jpg"
+  - "/media/2024/10/IMG_20240701_131531-scaled.jpg"
+---

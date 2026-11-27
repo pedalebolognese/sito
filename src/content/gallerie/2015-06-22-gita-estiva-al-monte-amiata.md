@@ -1,0 +1,20 @@
+---
+title: "Gita Estiva al Monte Amiata"
+date: "2015-06-22"
+cover: "/media/2017/02/IMG_1977.jpg"
+photos:
+  - "/media/2017/02/IMG_3309.jpg"
+  - "/media/2017/02/IMG_3310.jpg"
+  - "/media/2017/02/IMG_3327.jpg"
+  - "/media/2017/02/IMG_3334.jpg"
+  - "/media/2017/02/IMG_3338.jpg"
+  - "/media/2017/02/IMG_3360.jpg"
+  - "/media/2017/02/IMG_3367.jpg"
+  - "/media/2017/02/IMG_3534.jpg"
+  - "/media/2017/02/IMG_1931.jpg"
+  - "/media/2017/02/IMG_1942.jpg"
+  - "/media/2017/02/IMG_1964.jpg"
+  - "/media/2017/02/IMG_1977.jpg"
+  - "/media/2017/02/IMG_1990.jpg"
+  - "/media/2017/02/IMG_1996.jpg"
+---

@@ -1,0 +1,22 @@
+---
+title: "Giro della Romagna"
+date: "2017-05-07"
+cover: "/media/2018/03/IMG_9982.jpg"
+photos:
+  - "/media/2018/03/IMG_9999.jpg"
+  - "/media/2018/03/IMG_9995.jpg"
+  - "/media/2018/03/IMG_9992.jpg"
+  - "/media/2018/03/IMG_9988.jpg"
+  - "/media/2018/03/IMG_9982.jpg"
+  - "/media/2018/03/IMG_0024.jpg"
+  - "/media/2018/03/IMG_0022.jpg"
+  - "/media/2018/03/IMG_0021.jpg"
+  - "/media/2018/03/IMG_0016.jpg"
+  - "/media/2018/03/IMG_0015.jpg"
+  - "/media/2018/03/IMG_0014.jpg"
+  - "/media/2018/03/IMG_0013.jpg"
+  - "/media/2018/03/IMG_0011.jpg"
+  - "/media/2018/03/IMG_0009.jpg"
+  - "/media/2018/03/IMG_0008.jpg"
+  - "/media/2018/03/IMG_0004.jpg"
+---

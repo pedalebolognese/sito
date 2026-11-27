@@ -1,0 +1,20 @@
+---
+title: "Pedalini al ‘Suzuki Bike Day – Imola’"
+date: "2023-07-08"
+cover: "/media/2023/10/IMG_20230708_090806.jpg"
+photos:
+  - "/media/2023/10/IMG_20230708_085137-scaled.jpg"
+  - "/media/2023/10/IMG_20230708_090806-scaled.jpg"
+  - "/media/2023/10/IMG_20230708_092239-scaled.jpg"
+  - "/media/2023/10/IMG_20230708_092322-scaled.jpg"
+  - "/media/2023/10/IMG_20230708_100308-scaled.jpg"
+  - "/media/2023/10/IMG_20230708_103757.jpg"
+  - "/media/2023/10/IMG_20230708_104754-scaled.jpg"
+  - "/media/2023/10/IMG_20230708_105531_1-scaled.jpg"
+  - "/media/2023/10/IMG_20230708_110026-scaled.jpg"
+  - "/media/2023/10/IMG_20230708_110028_1.jpg"
+  - "/media/2023/10/IMG_20230708_110028_2.jpg"
+  - "/media/2023/10/IMG_20230708_113424-scaled.jpg"
+  - "/media/2023/10/IMG_20230708_113454-scaled.jpg"
+  - "/media/2023/10/SBD-Carlo2.jpg"
+---

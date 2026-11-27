@@ -1,0 +1,120 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SchedaGalleria from '../components/SchedaGalleria.astro';
+import Evento from '../components/Evento.astro';
+import { site, iscriviti } from '../config/site';
+import { prossimeUscite, tutteLeUscite } from '../lib/uscite';
+import { full, original, thumb } from '../lib/media';
+import { byDateDesc, data, dataSmart, pubblicato } from '../lib/format';
+
+const gallerie = (await getCollection('gallerie', pubblicato)).sort(byDateDesc);
+const notizie = (await getCollection('notizie', pubblicato)).sort(byDateDesc).slice(0, 3);
+const comunicati = (await getCollection('comunicati', pubblicato)).sort(byDateDesc).slice(0, 5);
+const eventi = (await prossimeUscite(4));
+// Stagione finita e nuovo programma non ancora inserito: mostra le ultime uscite fatte
+const ultime = eventi.length ? [] : (await tutteLeUscite()).slice(-3).reverse();
+const heroFoto = gallerie.find((g) => g.data.cover)?.data.cover;
+---
+<Base>
+  <section class="hero">
+    {heroFoto && <img class="hero__foto" src={full(heroFoto)} alt="" fetchpriority="high" />}
+    <div class="contenitore">
+      <span class="hero__sopra">A.S.D. dal {site.fondazione}</span>
+      <h1>Pedaliamo insieme da oltre cent’anni</h1>
+      <p>Uscite domenicali sui colli bolognesi, gite sociali, campionato e tanta compagnia. Ci trovi ogni martedì sera al Circolo Il Fossolo.</p>
+      <div class="hero__azioni">
+        <a class="btn btn--rosso" href={iscriviti.href}>Iscriviti al Pedale</a>
+        <a class="btn btn--chiaro" href="/calendario/">Prossime uscite</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sezione">
+    <div class="contenitore griglia griglia--2">
+      <div>
+        <div class="sezione__testa">
+          <h2>Prossime uscite</h2>
+          <a href="/calendario/">Calendario completo →</a>
+        </div>
+        {eventi.length > 0 && eventi.map((e) => <Evento e={e} />)}
+        {eventi.length === 0 && ultime.length > 0 && (
+          <>
+            <p class="avviso">La stagione è conclusa: il nuovo programma sarà pubblicato a breve. Ecco le ultime uscite.</p>
+            {ultime.map((e) => <Evento e={e} passata />)}
+          </>
+        )}
+        {eventi.length === 0 && ultime.length === 0 && (
+          <p class="avviso">Il programma delle uscite è nella pagina <a href="/programma-ciclistico/">Programma ciclistico</a>.</p>
+        )}
+      </div>
+      <div>
+        <div class="sezione__testa">
+          <h2>Comunicati</h2>
+          <a href="/comunicati/">Tutti →</a>
+        </div>
+        <ul class="elenco">
+          {comunicati.map((c) => (
+            <li>
+              <a href={c.data.pdf ? original(c.data.pdf) : '/comunicati/'} target={c.data.pdf ? '_blank' : undefined}>
+                {c.data.title} {c.data.pdf && <span class="etichetta">PDF</span>}
+              </a>
+              <span class="data">{dataSmart(c.data.date)}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {notizie.length > 0 && (
+    <section class="sezione sezione--bianca">
+      <div class="contenitore">
+        <div class="sezione__testa">
+          <h2>Notizie dal gruppo</h2>
+          <a href="/notizie/">Tutte le notizie →</a>
+        </div>
+        <div class="griglia">
+          {notizie.map((n) => (
+            <a class="scheda" href={`/notizie/${n.id}/`}>
+              {n.data.cover && <img class="scheda__img" src={thumb(n.data.cover)} alt="" loading="lazy" />}
+              <div class="scheda__corpo">
+                <span class="scheda__data">{data(n.data.date)}</span>
+                <h3>{n.data.title}</h3>
+                {n.data.sommario && <p class="piccolo muto">{n.data.sommario}</p>}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="sezione">
+    <div class="contenitore">
+      <div class="sezione__testa">
+        <h2>Ultime foto</h2>
+        <a href="/foto/">Archivio dal 2011 →</a>
+      </div>
+      <div class="griglia">
+        {gallerie.slice(0, 6).map((g, i) => <SchedaGalleria g={g} eager={i < 3} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="sezione sezione--bianca">
+    <div class="contenitore griglia griglia--2">
+      <div class="riquadro">
+        <h2>Vieni a pedalare con noi</h2>
+        <p>Il Pedale Bolognese è aperto a tutti: ciclisti esperti, amatori e chi vuole semplicemente pedalare in compagnia. Le gite domenicali hanno percorsi per tutti i livelli.</p>
+        <a class="btn" href={iscriviti.href}>Come iscriversi</a>
+      </div>
+      <div class="riquadro" style="border-top-color: var(--blu)">
+        <h2>Dove trovarci</h2>
+        {site.indirizzo.map((r) => <div>{r}</div>)}
+        <p><strong>{site.ritrovo}</strong></p>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+      </div>
+    </div>
+  </section>
+</Base>

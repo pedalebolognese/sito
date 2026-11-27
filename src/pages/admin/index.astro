@@ -1,0 +1,18 @@
+---
+// Pannello di gestione (Sveltia CMS). La configurazione è in public/admin/config.yml.
+// È una pagina Astro (e non un file in public/) così /admin/ funziona anche con "npm run dev".
+---
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Pannello · Pedale Bolognese</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="cms-config-url" type="application/yaml" href="/admin/config.yml" />
+  </head>
+  <body>
+    <script is:inline src="https://unpkg.com/@sveltia/cms@0/dist/sveltia-cms.js" type="module"></script>
+  </body>
+</html>

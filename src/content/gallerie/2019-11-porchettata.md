@@ -1,0 +1,25 @@
+---
+title: "Porchettata"
+date: "2019-11-01"
+data_certa: false
+cover: "/media/2019/11/IMG_2198.jpeg"
+photos:
+  - "/media/2019/11/IMG_2232.jpeg"
+  - "/media/2019/11/IMG_2227.jpeg"
+  - "/media/2019/11/IMG_2225.jpeg"
+  - "/media/2019/11/IMG_2224.jpeg"
+  - "/media/2019/11/IMG_2223.jpeg"
+  - "/media/2019/11/IMG_2222.jpeg"
+  - "/media/2019/11/IMG_2221.jpeg"
+  - "/media/2019/11/IMG_2217.jpeg"
+  - "/media/2019/11/IMG_2216.jpeg"
+  - "/media/2019/11/IMG_2213.jpeg"
+  - "/media/2019/11/IMG_2212.jpeg"
+  - "/media/2019/11/IMG_2211.jpeg"
+  - "/media/2019/11/IMG_2210.jpeg"
+  - "/media/2019/11/IMG_2209.jpeg"
+  - "/media/2019/11/IMG_2208.jpeg"
+  - "/media/2019/11/IMG_2200.jpeg"
+  - "/media/2019/11/IMG_2199.jpeg"
+  - "/media/2019/11/IMG_2198.jpeg"
+---

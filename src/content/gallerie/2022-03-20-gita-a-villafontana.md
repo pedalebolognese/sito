@@ -1,0 +1,23 @@
+---
+title: "Gita a Villafontana"
+date: "2022-03-20"
+cover: "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.14.28.jpeg"
+photos:
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.01.24.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.02.12.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.03.08.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.03.54.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.04.47.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.06.15.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.09.49.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.14.28.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.16.05.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.17.22.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.17.48.jpeg"
+  - "/media/2022/03/WhatsApp-Image-2022-03-20-at-16.20.10.jpeg"
+  - "/media/2022/03/IMG_20220320_100108_1.jpeg"
+  - "/media/2022/03/IMG_20220320_100110_2.jpeg"
+  - "/media/2022/03/IMG_20220320_100114_1.jpeg"
+  - "/media/2022/03/IMG_20220320_101317_1.jpeg"
+  - "/media/2022/03/IMG_20220320_101357_1.jpeg"
+---

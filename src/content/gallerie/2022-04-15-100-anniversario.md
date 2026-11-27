@@ -1,0 +1,20 @@
+---
+title: "100° Anniversario"
+date: "2022-04-15"
+cover: "/media/2022/04/10.jpeg"
+photos:
+  - "/media/2022/04/1.jpeg"
+  - "/media/2022/04/2.jpeg"
+  - "/media/2022/04/3.jpeg"
+  - "/media/2022/04/4.jpeg"
+  - "/media/2022/04/5.jpeg"
+  - "/media/2022/04/6.jpeg"
+  - "/media/2022/04/7.jpeg"
+  - "/media/2022/04/8.1.jpeg"
+  - "/media/2022/04/8.jpeg"
+  - "/media/2022/04/9.jpeg"
+  - "/media/2022/04/10.jpeg"
+  - "/media/2022/04/11.jpeg"
+  - "/media/2022/04/12-scaled.jpg"
+  - "/media/2022/04/13-scaled.jpg"
+---

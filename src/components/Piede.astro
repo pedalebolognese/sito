@@ -1,0 +1,36 @@
+---
+import { site, menuSecondario } from '../config/site';
+---
+<footer class="piede">
+  <div class="contenitore">
+    <div class="piede__colonne">
+      <section>
+        <h2>{site.nome}</h2>
+        {site.indirizzo.map((r) => <div>{r}</div>)}
+        <p>{site.ritrovo}</p>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+      </section>
+      <section>
+        <h2>Il club</h2>
+        <ul>
+          <li><a href="/societa/">Chi siamo</a></li>
+          <li><a href="/pagina-iscrizioni/">Come iscriversi</a></li>
+          <li><a href="/calendario/">Calendario uscite</a></li>
+          <li><a href="/foto/">Archivio foto</a></li>
+          <li><a href="/contatti/">Contatti</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Link utili</h2>
+        <ul>
+          {menuSecondario.map((l) => <li><a href={l.href} target="_blank" rel="noopener">{l.label}</a></li>)}
+          {site.social.map((s) => <li><a href={s.url} target="_blank" rel="noopener">{s.nome}</a></li>)}
+        </ul>
+      </section>
+    </div>
+    <div class="piede__fondo">
+      <span>© {new Date().getFullYear()} {site.nome} · fondata nel {site.fondazione}</span>
+      <span><a href="/policy/">Privacy</a> · <a href="/cookie-policy/">Cookie</a> · Questo sito non usa cookie di profilazione</span>
+    </div>
+  </div>
+</footer>

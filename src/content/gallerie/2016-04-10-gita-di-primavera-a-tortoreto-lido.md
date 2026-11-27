@@ -1,0 +1,23 @@
+---
+title: "Gita di Primavera a Tortoreto Lido"
+date: "2016-04-10"
+cover: "/media/2017/02/thumb_IMG_0696_1024.jpg"
+photos:
+  - "/media/2017/02/thumb_IMG_0659_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0669_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0676_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0680_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0696_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0702_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0704_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0714_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0725_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0748_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0756_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0775_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0793_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0794_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0801_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0804_1024.jpg"
+  - "/media/2017/02/thumb_IMG_0807_1024.jpg"
+---

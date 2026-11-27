@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SchedaGalleria from '../../components/SchedaGalleria.astro';
+import { anno, byDateDesc, pubblicato } from '../../lib/format';
+
+const gallerie = (await getCollection('gallerie', pubblicato)).sort(byDateDesc);
+const perAnno = Map.groupBy(gallerie, (g) => anno(g.data.date) || 'Senza data');
+const totaleFoto = gallerie.reduce((n, g) => n + g.data.photos.length, 0);
+---
+<Base title="Foto" description="Archivio fotografico del Pedale Bolognese: gite, gare, feste e premiazioni dal 2011.">
+  <div class="contenitore intestazione-pagina">
+    <h1>Archivio foto</h1>
+    <p class="muto">{gallerie.length} gallerie e {totaleFoto.toLocaleString('it-IT')} foto di uscite, gite, feste e premiazioni.</p>
+    <ul class="anni">
+      {[...perAnno.keys()].map((y) => <li><a href={`#anno-${y}`}>{y}</a></li>)}
+    </ul>
+  </div>
+  <div class="contenitore">
+    {[...perAnno].map(([y, lista], i) => (
+      <section id={`anno-${y}`}>
+        <h2>{y} <span class="muto piccolo">· {lista.length} gallerie</span></h2>
+        <div class="griglia">
+          {lista.map((g, j) => <SchedaGalleria g={g} eager={i === 0 && j < 4} />)}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>

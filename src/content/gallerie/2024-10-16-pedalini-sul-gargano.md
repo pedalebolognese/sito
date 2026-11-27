@@ -1,0 +1,20 @@
+---
+title: "Pedalini sul Gargano"
+date: "2024-10-16"
+cover: "/media/2024/11/IMG_20241017_173758.jpg"
+photos:
+  - "/media/2024/11/IMG_20241016_182410-scaled.jpg"
+  - "/media/2024/11/IMG_20241016_182442-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_095237_1-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_092314-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_093451-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_112250-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_121730_1-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_121838-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_122350_2-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_131018-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_135903-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_160255-scaled.jpg"
+  - "/media/2024/11/IMG_20241017_173758-scaled.jpg"
+  - "/media/2024/11/Screenshot_2024-10-17-18-54-13-285_com.garmin.android.apps_.connectmobile.jpg"
+---

@@ -1,0 +1,22 @@
+---
+title: "Pedalini alla 43^ GF “Giro di Romagna” Lugo"
+date: "2023-10-22"
+cover: "/media/2023/10/IMG_20231022_134530.jpg"
+photos:
+  - "/media/2023/10/1-2-scaled.jpg"
+  - "/media/2023/10/2-2-scaled.jpg"
+  - "/media/2023/10/3-2.jpg"
+  - "/media/2023/10/4-1-scaled.jpg"
+  - "/media/2023/10/5-2.jpg"
+  - "/media/2023/10/IMG_20231022_100016_2.jpg"
+  - "/media/2023/10/IMG_20231022_100016_3.jpg"
+  - "/media/2023/10/IMG_20231022_100016_4-scaled.jpg"
+  - "/media/2023/10/IMG_20231022_100016_5-scaled.jpg"
+  - "/media/2023/10/IMG_20231022_114830-scaled.jpg"
+  - "/media/2023/10/IMG_20231022_115332_1-scaled.jpg"
+  - "/media/2023/10/IMG_20231022_115332_2-scaled.jpg"
+  - "/media/2023/10/IMG_20231022_134530-scaled.jpg"
+  - "/media/2023/10/IMG-20231022-WA0000.jpg"
+  - "/media/2023/10/IMG-20231022-WA0016_3.jpg"
+  - "/media/2023/10/IMG-20231022-WA0016_4.jpg"
+---

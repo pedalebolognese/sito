@@ -1,0 +1,12 @@
+// Pubblicazione su Cloudflare Workers (solo file statici: gratis).
+// npx wrangler deploy  — oppure in automatico con GitHub Actions (.github/workflows/deploy.yml)
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pedalebolognese",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

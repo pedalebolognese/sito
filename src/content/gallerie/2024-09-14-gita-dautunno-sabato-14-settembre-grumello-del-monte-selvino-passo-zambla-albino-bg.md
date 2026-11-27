@@ -1,0 +1,23 @@
+---
+title: "Gita d’Autunno – Sabato 14 Settembre: Grumello del Monte, Selvino, passo Zambla, Albino-BG"
+date: "2024-09-14"
+cover: "/media/2024/10/IMG_20240914_140743_2.jpg"
+photos:
+  - "/media/2024/10/IMG_20240914_115850_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_124719-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_131142-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_132229-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_134135-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_134530_1.jpg"
+  - "/media/2024/10/IMG_20240914_140743_2-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_140924-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_163537_1.jpg"
+  - "/media/2024/10/IMG_20240914_164458_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_164501_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_174549_1.jpg"
+  - "/media/2024/10/IMG_20240914_211453-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_211900_1.jpg"
+  - "/media/2024/10/IMG_20240914_212411-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_211823-scaled.jpg"
+  - "/media/2024/10/IMG_20240914_212008-scaled.jpg"
+---

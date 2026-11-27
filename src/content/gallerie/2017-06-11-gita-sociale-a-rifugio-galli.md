@@ -1,0 +1,22 @@
+---
+title: "Gita sociale a “Rifugio Galli”"
+date: "2017-06-11"
+cover: "/media/2018/03/IMG_1166.jpg"
+photos:
+  - "/media/2018/03/IMG_1171.jpg"
+  - "/media/2018/03/IMG_1186.jpg"
+  - "/media/2018/03/IMG_1178.jpg"
+  - "/media/2018/03/IMG_1177.jpg"
+  - "/media/2018/03/IMG_1170.jpg"
+  - "/media/2018/03/IMG_1166.jpg"
+  - "/media/2018/03/IMG_1149.jpg"
+  - "/media/2018/03/IMG_1148.jpg"
+  - "/media/2018/03/IMG_1114.jpg"
+  - "/media/2018/03/IMG_1097.jpg"
+  - "/media/2018/03/IMG_1093.jpg"
+  - "/media/2018/03/IMG_1055.jpg"
+  - "/media/2018/03/IMG_1051.jpg"
+  - "/media/2018/03/IMG_1049.jpg"
+  - "/media/2018/03/IMG_1047.jpg"
+  - "/media/2018/03/IMG_1045.jpg"
+---

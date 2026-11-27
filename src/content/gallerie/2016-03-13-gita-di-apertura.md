@@ -1,0 +1,21 @@
+---
+title: "Gita di apertura"
+date: "2016-03-13"
+cover: "/media/2017/02/IMG_03891.jpg"
+photos:
+  - "/media/2017/02/IMG_04082.jpg"
+  - "/media/2017/02/IMG_04101.jpg"
+  - "/media/2017/02/IMG_0402.jpg"
+  - "/media/2017/02/IMG_04001.jpg"
+  - "/media/2017/02/IMG_03923.jpg"
+  - "/media/2017/02/IMG_03912.jpg"
+  - "/media/2017/02/IMG_0417.jpg"
+  - "/media/2017/02/IMG_04151.jpg"
+  - "/media/2017/02/IMG_04031.jpg"
+  - "/media/2017/02/IMG_0407.jpg"
+  - "/media/2017/02/IMG_0383.jpg"
+  - "/media/2017/02/IMG_0386.jpg"
+  - "/media/2017/02/IMG_0387.jpg"
+  - "/media/2017/02/IMG_03881.jpg"
+  - "/media/2017/02/IMG_03891.jpg"
+---

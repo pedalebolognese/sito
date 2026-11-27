@@ -1,0 +1,20 @@
+---
+title: "Pedalini alla GF di Gaggio Montano"
+date: "2023-10-15"
+cover: "/media/2023/10/IMG_20231015_100421_1.jpg"
+photos:
+  - "/media/2023/10/IMG_20231015_090733.jpg"
+  - "/media/2023/10/IMG_20231015_090806_1.jpg"
+  - "/media/2023/10/IMG_20231015_091557_1.jpg"
+  - "/media/2023/10/IMG_20231015_092141-scaled.jpg"
+  - "/media/2023/10/IMG_20231015_092142.jpg"
+  - "/media/2023/10/IMG_20231015_094939_1-scaled.jpg"
+  - "/media/2023/10/IMG_20231015_094939_2.jpg"
+  - "/media/2023/10/IMG_20231015_100421_1-scaled.jpg"
+  - "/media/2023/10/IMG_20231015_103925-scaled.jpg"
+  - "/media/2023/10/IMG_20231015_103926-scaled.jpg"
+  - "/media/2023/10/IMG_20231015_103927.jpg"
+  - "/media/2023/10/IMG_20231015_125351-scaled.jpg"
+  - "/media/2023/10/IMG_20231015_151649_1.jpg"
+  - "/media/2023/10/IMG_20231015_151649_2-scaled.jpg"
+---

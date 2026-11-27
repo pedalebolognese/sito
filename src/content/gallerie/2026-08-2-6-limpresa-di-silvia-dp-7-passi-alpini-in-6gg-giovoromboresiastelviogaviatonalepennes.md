@@ -1,0 +1,22 @@
+---
+title: "L’impresa di Silvia DP – 7 Passi Alpini in 6gg: Giovo,Rombo,Resia,Stelvio,Gavia,Tonale,Pennes"
+date: "2026-08-02"
+cover: "/media/2026/09/IMG-20260805-WA0025_2.jpg"
+photos:
+  - "/media/2026/09/IMG-20260803-WA0006_2.jpg"
+  - "/media/2026/09/IMG-20260803-WA0011_2.jpg"
+  - "/media/2026/09/IMG-20260804-WA0008_2.jpg"
+  - "/media/2026/09/IMG-20260804-WA0009_2.jpg"
+  - "/media/2026/09/IMG-20260805-WA0000_2.jpg"
+  - "/media/2026/09/IMG-20260805-WA0006_2.jpg"
+  - "/media/2026/09/IMG-20260805-WA0010_2.jpg"
+  - "/media/2026/09/IMG-20260805-WA0011_2.jpg"
+  - "/media/2026/09/IMG-20260805-WA0018_2.jpg"
+  - "/media/2026/09/IMG-20260805-WA0019_2.jpg"
+  - "/media/2026/09/IMG-20260805-WA0025_2.jpg"
+  - "/media/2026/09/IMG-20260805-WA0026_2.jpg"
+  - "/media/2026/09/IMG-20260806-WA0009_2.jpg"
+  - "/media/2026/09/IMG-20260806-WA0010_2.jpg"
+  - "/media/2026/09/IMG-20260806-WA0014_2.jpg"
+  - "/media/2026/09/IMG-20260806-WA0015-2.jpg"
+---

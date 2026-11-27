@@ -1,0 +1,93 @@
+---
+// Mappa del percorso (OpenStreetMap, gratuita, senza account) + profilo altimetrico.
+// La mappa è interattiva (Leaflet); il profilo è un disegno SVG generato durante la build.
+import type { Traccia } from '../lib/gpx';
+
+interface Props { t: Traccia; nome?: string; gpx?: string }
+const { t, nome, gpx } = Astro.props;
+const id = `mappa-${Math.random().toString(36).slice(2, 8)}`;
+
+// profilo altimetrico
+const W = 800, H = 170, PADL = 44, PADB = 22, PADT = 8;
+const kmMax = t.profilo.at(-1)?.[0] ?? t.km;
+const qMin = Math.floor((t.quotaMin - 20) / 100) * 100;
+const qMax = Math.ceil((t.quotaMax + 20) / 100) * 100;
+const x = (k: number) => PADL + (k / kmMax) * (W - PADL - 6);
+const y = (q: number) => PADT + (1 - (q - qMin) / (qMax - qMin || 1)) * (H - PADT - PADB);
+const linea = t.profilo.map(([k, q], i) => `${i ? 'L' : 'M'}${x(k).toFixed(1)},${y(q).toFixed(1)}`).join(' ');
+const area = t.profilo.length ? `${linea} L${x(kmMax).toFixed(1)},${H - PADB} L${PADL},${H - PADB} Z` : '';
+const passoQ = qMax - qMin > 800 ? 400 : qMax - qMin > 400 ? 200 : 100;
+const righeQ = [] as number[];
+for (let q = qMin; q <= qMax; q += passoQ) righeQ.push(q);
+const passoK = kmMax > 80 ? 20 : kmMax > 40 ? 10 : 5;
+const righeK = [] as number[];
+for (let k = 0; k <= kmMax; k += passoK) righeK.push(k);
+---
+<figure class="traccia">
+  <div class="traccia__dati">
+    <div><b>{t.km.toLocaleString('it-IT')}</b><span>km</span></div>
+    {t.profilo.length > 0 && <div><b>{t.dislivello.toLocaleString('it-IT')}</b><span>m di salita</span></div>}
+    {t.profilo.length > 0 && <div><b>{t.quotaMax.toLocaleString('it-IT')}</b><span>m quota max</span></div>}
+    {gpx && <a class="btn btn--bordo" href={gpx} download>⬇ Scarica GPX</a>}
+  </div>
+
+  <div id={id} class="traccia__mappa" data-linea={JSON.stringify(t.linea)} role="img" aria-label={`Mappa del percorso ${nome ?? ''}`}></div>
+
+  {t.profilo.length > 0 && (
+    <svg class="traccia__profilo" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Profilo altimetrico: da ${t.quotaMin} a ${t.quotaMax} metri`}>
+      {righeQ.map((q) => (
+        <g>
+          <line x1={PADL} x2={W - 6} y1={y(q)} y2={y(q)} class="griglia" />
+          <text x={PADL - 6} y={y(q) + 4} text-anchor="end">{q}</text>
+        </g>
+      ))}
+      {righeK.map((k) => <text x={x(k)} y={H - 6} text-anchor="middle">{k} km</text>)}
+      <path d={area} class="area" />
+      <path d={linea} class="linea" />
+    </svg>
+  )}
+  <figcaption class="piccolo muto">
+    Mappa © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>.
+    Km e dislivello sono calcolati dalla traccia GPX.
+  </figcaption>
+</figure>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script is:inline define:vars={{ id }}>
+  (function () {
+    const el = document.getElementById(id);
+    if (!el || !window.L) return;
+    const punti = JSON.parse(el.dataset.linea);
+    const mappa = L.map(el, { scrollWheelZoom: false });
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap',
+    }).addTo(mappa);
+    const linea = L.polyline(punti, { color: '#d2232a', weight: 4, opacity: 0.9 }).addTo(mappa);
+    const pallino = (c, t) => L.circleMarker(c, { radius: 7, color: '#fff', weight: 2, fillColor: '#23357e', fillOpacity: 1 }).bindTooltip(t);
+    pallino(punti[0], 'Partenza').addTo(mappa);
+    pallino(punti[punti.length - 1], 'Arrivo').addTo(mappa);
+    mappa.fitBounds(linea.getBounds(), { padding: [20, 20] });
+    // zoom con la rotella solo dopo un clic, per non "rubare" lo scorrimento della pagina
+    mappa.on('click', () => mappa.scrollWheelZoom.enable());
+    mappa.on('mouseout', () => mappa.scrollWheelZoom.disable());
+  })();
+</script>
+
+<style>
+  .traccia { margin: 1.5rem 0 0; }
+  .traccia__dati { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; align-items: center; margin-bottom: 0.75rem; }
+  .traccia__dati div { display: flex; flex-direction: column; line-height: 1.1; }
+  .traccia__dati b { font: 700 1.9rem/1 var(--font-titoli); color: var(--blu); }
+  .traccia__dati span { font-size: 0.8rem; color: var(--grigio); }
+  .traccia__dati .btn { margin-left: auto; }
+  .traccia__mappa { height: 380px; border-radius: var(--raggio); box-shadow: var(--ombra); z-index: 0; }
+  .traccia__profilo { width: 100%; height: auto; margin-top: 0.75rem; background: var(--bianco); border-radius: var(--raggio); box-shadow: var(--ombra); }
+  .traccia__profilo text { font: 11px var(--font-testo); fill: var(--grigio); }
+  .traccia__profilo .griglia { stroke: var(--bordo); stroke-width: 1; }
+  .traccia__profilo .area { fill: rgb(35 53 126 / 15%); }
+  .traccia__profilo .linea { fill: none; stroke: var(--blu); stroke-width: 2; }
+  figcaption { margin-top: 0.4rem; }
+  @media (max-width: 600px) { .traccia__mappa { height: 280px; } .traccia__dati .btn { margin-left: 0; } }
+</style>

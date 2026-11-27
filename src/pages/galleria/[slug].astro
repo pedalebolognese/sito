@@ -1,0 +1,86 @@
+---
+// Stesso indirizzo del vecchio sito: /galleria/<slug>/
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { byDateDesc, dataSmart, pubblicato } from '../../lib/format';
+import { full, thumb, original } from '../../lib/media';
+
+export async function getStaticPaths() {
+  const gallerie = (await getCollection('gallerie', pubblicato)).sort(byDateDesc);
+  return gallerie.map((g, i) => ({
+    params: { slug: g.id },
+    props: { g, piuRecente: gallerie[i - 1], menoRecente: gallerie[i + 1] },
+  }));
+}
+const { g, piuRecente, menoRecente } = Astro.props;
+const { Content } = await render(g);
+---
+<Base title={g.data.title} description={`Foto: ${g.data.title}`} image={g.data.cover}>
+  <div class="contenitore intestazione-pagina">
+    <p class="briciole"><a href="/foto/">Foto</a> · {dataSmart(g.data.date, g.data.data_certa)} · {g.data.photos.length} foto</p>
+    <h1>{g.data.title}</h1>
+    {g.body?.trim() && <div class="prosa stretto" style="margin:0"><Content /></div>}
+  </div>
+
+  <div class="contenitore">
+    <div class="foto-griglia" data-galleria>
+      {g.data.photos.map((p, i) => (
+        <a href={full(p)} data-originale={original(p)}>
+          <img src={thumb(p)} alt={`Foto ${i + 1} di ${g.data.photos.length}`} loading={i < 8 ? 'eager' : 'lazy'} decoding="async" width="240" height="240" />
+        </a>
+      ))}
+    </div>
+
+    <nav class="navigazione-gallerie" aria-label="Altre gallerie">
+      {piuRecente ? <a class="btn btn--bordo" href={`/galleria/${piuRecente.id}/`}>← {piuRecente.data.title}</a> : <span />}
+      {menoRecente && <a class="btn btn--bordo" href={`/galleria/${menoRecente.id}/`}>{menoRecente.data.title} →</a>}
+    </nav>
+  </div>
+
+  <dialog class="lightbox" aria-label="Foto ingrandita">
+    <img alt="" />
+    <button class="lightbox__chiudi" aria-label="Chiudi">×</button>
+    <button class="lightbox__prec" aria-label="Foto precedente">‹</button>
+    <button class="lightbox__succ" aria-label="Foto successiva">›</button>
+    <div class="lightbox__info"><span></span> · <a target="_blank" download>scarica originale</a></div>
+  </dialog>
+</Base>
+
+<script>
+  const griglia = document.querySelector<HTMLElement>('[data-galleria]');
+  const dlg = document.querySelector<HTMLDialogElement>('.lightbox');
+  if (griglia && dlg) {
+    const links = [...griglia.querySelectorAll<HTMLAnchorElement>('a')];
+    const img = dlg.querySelector('img')!;
+    const info = dlg.querySelector('.lightbox__info span')!;
+    const scarica = dlg.querySelector<HTMLAnchorElement>('.lightbox__info a')!;
+    let i = 0;
+    const mostra = (n: number) => {
+      i = (n + links.length) % links.length;
+      img.src = links[i].href;
+      info.textContent = `${i + 1} / ${links.length}`;
+      scarica.href = links[i].dataset.originale ?? links[i].href;
+      // precarica la successiva
+      new Image().src = links[(i + 1) % links.length].href;
+    };
+    links.forEach((a, n) => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      mostra(n);
+      dlg.showModal();
+    }));
+    dlg.querySelector('.lightbox__chiudi')!.addEventListener('click', () => dlg.close());
+    dlg.querySelector('.lightbox__prec')!.addEventListener('click', () => mostra(i - 1));
+    dlg.querySelector('.lightbox__succ')!.addEventListener('click', () => mostra(i + 1));
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') mostra(i - 1);
+      if (e.key === 'ArrowRight') mostra(i + 1);
+    });
+    let x0 = 0;
+    dlg.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    dlg.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 50) mostra(dx < 0 ? i + 1 : i - 1);
+    });
+  }
+</script>

@@ -1,0 +1,22 @@
+---
+title: "In ricordo di Denny"
+date: "2024-04-29"
+cover: "/media/2024/05/IMG_20230326_112019_BURST002-Copia_1.jpg"
+photos:
+  - "/media/2024/05/WhatsApp-Image-2024-04-29-at-18.38.50.jpeg"
+  - "/media/2024/05/IMG_20230617_172149_1.jpg"
+  - "/media/2024/05/IMG_20210618_154812_1.jpg"
+  - "/media/2024/05/IMG_20220415_153330_1.jpg"
+  - "/media/2024/05/IMG-20220703-WA0011_1.jpg"
+  - "/media/2024/05/IMG_20220515_114730_1.jpg"
+  - "/media/2024/05/IMG-20220602-WA0012.jpg"
+  - "/media/2024/05/IMG-20220610-WA0024_1.jpg"
+  - "/media/2024/05/IMG_20220610_185019_1.jpg"
+  - "/media/2024/05/IMG_20220610_134619_1.jpg"
+  - "/media/2024/05/IMG_20220611_122006_1.jpg"
+  - "/media/2024/05/IMG_20220611_150341-1.jpg"
+  - "/media/2024/05/IMG_20230619_105722-scaled.jpg"
+  - "/media/2024/05/IMG-20231023-WA0002-Copia.jpg"
+  - "/media/2024/05/IMG_20230326_112019_BURST002-Copia_1-scaled.jpg"
+  - "/media/2024/05/Screenshot-2024-05-21-204917.jpg"
+---

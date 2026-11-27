@@ -1,0 +1,45 @@
+---
+import '@fontsource/barlow-condensed/600.css';
+import '@fontsource/barlow-condensed/700.css';
+import '../styles/global.css';
+import Testata from '../components/Testata.astro';
+import Piede from '../components/Piede.astro';
+import { site } from '../config/site';
+import { full } from '../lib/media';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string | null;
+}
+const { title, description = site.descrizione, image } = Astro.props;
+const pageTitle = title ? `${title} · ${site.breve}` : `${site.nome} · ${site.motto}`;
+const ogImage = image ? full(image) : full(site.logo);
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#17235a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.nome} />
+    <meta property="og:title" content={title ?? site.nome} />
+    <meta property="og:description" content={description} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="it_IT" />
+  </head>
+  <body>
+    <Testata />
+    <main id="contenuto">
+      <slot />
+    </main>
+    <Piede />
+  </body>
+</html>

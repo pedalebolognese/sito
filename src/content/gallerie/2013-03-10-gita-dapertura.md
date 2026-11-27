@@ -1,0 +1,21 @@
+---
+title: "Gita d’apertura"
+date: "2013-03-10"
+cover: "/media/2017/02/IMG_7381.jpg"
+photos:
+  - "/media/2017/02/IMG_7377.jpg"
+  - "/media/2017/02/IMG_7379.jpg"
+  - "/media/2017/02/IMG_7381.jpg"
+  - "/media/2017/02/IMG_7386.jpg"
+  - "/media/2017/02/IMG_7387.jpg"
+  - "/media/2017/02/IMG_7388.jpg"
+  - "/media/2017/02/IMG_7389.jpg"
+  - "/media/2017/02/IMG_7390.jpg"
+  - "/media/2017/02/IMG_7391.jpg"
+  - "/media/2017/02/IMG_7392.jpg"
+  - "/media/2017/02/IMG_7394.jpg"
+  - "/media/2017/02/IMG_7395.jpg"
+  - "/media/2017/02/IMG_7398.jpg"
+  - "/media/2017/02/IMG_7400.jpg"
+  - "/media/2017/02/IMG_7401.jpg"
+---

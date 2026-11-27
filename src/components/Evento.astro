@@ -1,0 +1,29 @@
+---
+import type { Evento } from '../lib/google';
+import { ora } from '../lib/format';
+
+interface Props { e: Evento; passata?: boolean }
+const { e, passata = false } = Astro.props;
+const fmt = (o: Intl.DateTimeFormatOptions) => new Intl.DateTimeFormat('it-IT', { ...o, timeZone: 'Europe/Rome' }).format(e.start);
+const giornoNum = fmt({ day: 'numeric' });
+const meseBreve = fmt({ month: 'short' });
+const giornoSett = fmt({ weekday: 'long' });
+const maps = e.location ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.location)}` : null;
+---
+<article class:list={['evento', { 'evento--passata': passata, 'evento--annullata': e.annullata }]} id={e.id}>
+  <div class="evento__data" aria-hidden="true"><b>{giornoNum}</b><span>{meseBreve}</span></div>
+  <div>
+    <h3>
+      {e.href ? <a href={e.href}>{e.title}</a> : e.title}
+      {e.annullata && <span class="etichetta etichetta--rossa">Annullata</span>}
+    </h3>
+    <p class="muto piccolo">
+      <span class="sr-only">{giornoNum} {meseBreve}, </span>{giornoSett}{!e.allDay && <> · ritrovo ore {ora(e.start)}</>}
+      {maps && <> · <a href={maps} target="_blank" rel="noopener">{e.location}</a></>}
+    </p>
+    {e.dettagli && e.dettagli.length > 0 && <p class="piccolo">{e.dettagli.join(' — ')}</p>}
+    {e.description && <p class="piccolo">{e.description.length > 220 ? e.description.slice(0, 220) + '…' : e.description}</p>}
+    {e.galleria && <p class="piccolo"><a href={`/galleria/${e.galleria}/`}>📷 Le foto della giornata</a></p>}
+    {e.url && <p class="piccolo"><a href={e.url} target="_blank" rel="noopener">Dettagli e traccia</a></p>}
+  </div>
+</article>

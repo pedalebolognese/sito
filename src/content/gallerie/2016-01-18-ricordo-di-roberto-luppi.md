@@ -1,0 +1,21 @@
+---
+title: "Ricordo di Roberto Luppi"
+date: "2016-01-18"
+cover: "/media/2017/02/Roberto.jpg"
+photos:
+  - "/media/2017/02/Assemblea-dei-soci-19575.jpg"
+  - "/media/2017/02/bologna-loiano-19561.jpg"
+  - "/media/2017/02/Casella-Trombetta4.jpg"
+  - "/media/2017/02/Con-Naldi-e-Tregambi.jpg"
+  - "/media/2017/02/Eroica-2006.jpg"
+  - "/media/2017/02/Eroica-2007.jpg"
+  - "/media/2017/02/Foto-di-gruppo.jpg"
+  - "/media/2017/02/gita-dolomiti-19581.jpg"
+  - "/media/2017/02/In-cantina-dal-nonno-Tregambi.jpg"
+  - "/media/2017/02/Passeggiata5.jpg"
+  - "/media/2017/02/Pedale-Bolognese-50-anni-11-nov-20125.jpg"
+  - "/media/2017/02/Prepartita-di-calcio1.jpg"
+  - "/media/2017/02/Raduno-Nazionale-a-Prato1967.jpg"
+  - "/media/2017/02/Roberto.jpg"
+  - "/media/2017/02/S.Lorenzo-19626.jpg"
+---

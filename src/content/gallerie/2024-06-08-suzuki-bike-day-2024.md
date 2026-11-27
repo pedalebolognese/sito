@@ -1,0 +1,21 @@
+---
+title: "Suzuki Bike Day 2024"
+date: "2024-06-08"
+cover: "/media/2024/07/Screenshot_20240607_211052.jpg"
+photos:
+  - "/media/2024/07/IMG_20240608_074051-scaled.jpg"
+  - "/media/2024/07/IMG_20240608_081421-scaled.jpg"
+  - "/media/2024/07/IMG_20240608_082127-scaled.jpg"
+  - "/media/2024/07/20240611_152548-scaled.jpg"
+  - "/media/2024/07/IMG-20240625-WA0004.jpg"
+  - "/media/2024/07/c07d6ce3-4c99-406e-bc38-c0047b3e3aec-scaled.jpg"
+  - "/media/2024/07/IMG_20240608_151220.jpg"
+  - "/media/2024/07/IMG_20240608_102242-scaled.jpg"
+  - "/media/2024/07/IMG_20240608_113106_2-scaled.jpg"
+  - "/media/2024/07/IMG-20240608-WA0011.jpg"
+  - "/media/2024/07/5a0709e3-d6c3-4508-b586-f88c1d7400f8-scaled.jpg"
+  - "/media/2024/07/IMG-20240608-WA0010_2.jpg"
+  - "/media/2024/07/IMG_20240608_152804.jpg"
+  - "/media/2024/07/05768a00-08b8-4da0-a22a-4f6e84732e1c-scaled.jpg"
+  - "/media/2024/07/Screenshot_20240607_211052.jpg"
+---

@@ -1,0 +1,20 @@
+---
+title: "GF Giro di Romagna – Lugo (Ped Bol 26° Classificato)"
+date: "2024-05-05"
+cover: "/media/2024/05/IMG_20240505_153309.jpg"
+photos:
+  - "/media/2024/05/IMG_20240505_062526-scaled.jpg"
+  - "/media/2024/05/IMG_20240505_075132-scaled.jpg"
+  - "/media/2024/05/IMG-20240505-WA0005.jpg"
+  - "/media/2024/05/IMG_20240505_084026-scaled.jpg"
+  - "/media/2024/05/IMG_20240505_153617.jpg"
+  - "/media/2024/05/IMG_20240505_153428.jpg"
+  - "/media/2024/05/IMG_20240505_094619-scaled.jpg"
+  - "/media/2024/05/IMG_20240505_110427-scaled.jpg"
+  - "/media/2024/05/IMG_20240505_153953-scaled.jpg"
+  - "/media/2024/05/IMG_20240505_131221-scaled.jpg"
+  - "/media/2024/05/IMG-20240505-WA0004_1.jpg"
+  - "/media/2024/05/IMG_20240505_144850-scaled.jpg"
+  - "/media/2024/05/IMG_20240505_154238-scaled.jpg"
+  - "/media/2024/05/IMG_20240505_153309-scaled.jpg"
+---

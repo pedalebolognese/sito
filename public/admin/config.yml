@@ -1,0 +1,207 @@
+# Pannello di gestione (Sveltia CMS) — https://www.pedalebolognese.it/admin/
+# Ogni "collezione" qui corrisponde a una cartella in src/content/ e allo schema
+# in src/content.config.ts: se si aggiunge un campo, va aggiunto in entrambi.
+
+backend:
+  name: github
+  repo: pedalebolognese/sito
+  branch: main
+  # Accesso con nome utente e password, senza account GitHub, tramite
+  # Sveltia CMS Additions (worker gratuito su Cloudflare). Vedi README, sezione "Login al pannello".
+  auth_type: additions
+  base_url: https://sveltia-cms-additions.TUOSOTTODOMINIO.workers.dev   # TODO: indirizzo del worker
+  commit_messages:
+    create: 'Nuovo {{collection}}: {{slug}}'
+    update: 'Modifica {{collection}}: {{slug}}'
+    delete: 'Elimina {{collection}}: {{slug}}'
+    uploadMedia: 'Carica {{path}}'
+    deleteMedia: 'Elimina {{path}}'
+
+site_url: https://www.pedalebolognese.it
+display_url: https://www.pedalebolognese.it
+logo_url: /favicon.svg
+app_title: Pedale Bolognese
+
+# File caricati dal pannello: vanno nel sito (public/uploads)
+media_folder: public/uploads
+public_folder: /uploads
+
+# Le foto caricate vengono convertite in WebP e ridimensionate automaticamente
+media_libraries:
+  default:
+    config:
+      max_file_size: 26214400        # 25 MB (limite dei file su Cloudflare)
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1920
+          height: 1920
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  # ------------------------------------------------------------------ USCITE
+  - name: uscite
+    label: Uscite e gite
+    label_singular: Uscita
+    description: Il calendario della stagione. Ogni uscita compare nel calendario del sito e nei telefoni dei soci iscritti.
+    folder: src/content/uscite
+    create: true
+    slug: '{{fields.date}}-{{slug}}'
+    media_folder: /public/uploads/uscite
+    public_folder: /uploads/uscite
+    sortable_fields:
+      fields: [date, title]
+      default: { field: date, direction: descending }
+    summary: '{{date | date("DD/MM/YYYY")}} — {{title}}{{annullata | ternary(" (ANNULLATA)", "")}}'
+    fields:
+      - { name: title, label: Titolo, widget: string, hint: 'Es. “Gita 5 – Montebudello”' }
+      - name: date
+        label: Data
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: DD/MM/YYYY
+        time_format: false
+      - { name: ora, label: 'Ora di ritrovo', widget: string, required: false, pattern: ['^\d{1,2}[:.]\d{2}$', 'Scrivi l’ora come 08:30'], hint: 'Es. 08:30' }
+      - name: tipo
+        label: Tipo
+        widget: select
+        options: [Gita domenicale, Gita sociale, Gara / granfondo, Evento, Altro]
+        default: Gita domenicale
+      - { name: ritrovo, label: 'Luogo di ritrovo', widget: string, required: false, hint: 'Se vuoto: Circolo Il Fossolo, Viale Felsina 52' }
+      - name: percorsi
+        label: Percorsi
+        label_singular: Percorso
+        widget: list
+        required: false
+        summary: '{{fields.nome}} {{fields.km}} km'
+        fields:
+          - { name: nome, label: Nome, widget: string, required: false, hint: 'Es. Lungo, Corto' }
+          - { name: km, label: Km, widget: number, value_type: int, required: false, hint: 'Non serve se carichi la traccia GPX.' }
+          - { name: dislivello, label: 'Dislivello (m)', widget: number, value_type: int, required: false }
+          - { name: gpx, label: 'Traccia GPX', widget: file, required: false, accept: '.gpx', hint: 'Carica il file .gpx (da Strava, Garmin, Komoot…): sul sito compaiono la mappa e il profilo, e km e dislivello si calcolano da soli.' }
+          - { name: link, label: 'Link mappa (Komoot, Strava…)', widget: string, required: false }
+      - { name: campionato, label: 'Valida per il campionato sociale', widget: boolean, default: false, required: false }
+      - { name: annullata, label: 'Annullata', widget: boolean, default: false, required: false, hint: 'Resta in calendario, barrata.' }
+      - name: galleria
+        label: Galleria foto della giornata
+        widget: relation
+        collection: gallerie
+        value_field: '{{slug}}'
+        search_fields: [title]
+        display_fields: [title]
+        required: false
+      - { name: bozza, label: 'Bozza (non pubblicare ancora)', widget: boolean, default: false, required: false }
+      - { name: body, label: 'Note (facoltative)', widget: markdown, required: false }
+
+  # ------------------------------------------------------------------ NOTIZIE
+  - name: notizie
+    label: Notizie
+    label_singular: Notizia
+    description: Il diario del gruppo — racconti di uscite, gite, feste.
+    folder: src/content/notizie
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    media_folder: /public/uploads/notizie
+    public_folder: /uploads/notizie
+    sortable_fields:
+      fields: [date, title]
+      default: { field: date, direction: descending }
+    summary: '{{date | date("DD/MM/YYYY")}} — {{title}}'
+    fields:
+      - { name: title, label: Titolo, widget: string }
+      - name: date
+        label: Data
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: DD/MM/YYYY
+        time_format: false
+        default: '{{now}}'
+      - { name: sommario, label: Sommario, widget: text, required: false, hint: 'Una o due frasi, compaiono nell’anteprima.' }
+      - { name: cover, label: Foto di copertina, widget: image, required: false }
+      - name: galleria
+        label: Galleria collegata
+        widget: relation
+        collection: gallerie
+        value_field: '{{slug}}'
+        search_fields: [title]
+        display_fields: [title]
+        required: false
+      - { name: bozza, label: 'Bozza (non pubblicare ancora)', widget: boolean, default: false, required: false }
+      - { name: body, label: Testo, widget: markdown }
+
+  # ------------------------------------------------------------------ COMUNICATI
+  - name: comunicati
+    label: Comunicati
+    label_singular: Comunicato
+    description: Convocazioni, tesseramento, locandine. Di solito basta titolo + PDF.
+    folder: src/content/comunicati
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    media_folder: /public/uploads/comunicati
+    public_folder: /uploads/comunicati
+    sortable_fields:
+      fields: [date, title]
+      default: { field: date, direction: descending }
+    summary: '{{date | date("DD/MM/YYYY")}} — {{title}}'
+    fields:
+      - { name: title, label: Titolo, widget: string }
+      - name: date
+        label: Data
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: DD/MM/YYYY
+        time_format: false
+        default: '{{now}}'
+      - { name: pdf, label: File PDF, widget: file, required: false }
+      - { name: immagine, label: 'Immagine (es. locandina)', widget: image, required: false }
+      - { name: bozza, label: 'Bozza (non pubblicare ancora)', widget: boolean, default: false, required: false }
+      - { name: body, label: 'Testo (facoltativo)', widget: markdown, required: false }
+
+  # ------------------------------------------------------------------ GALLERIE
+  - name: gallerie
+    label: Gallerie foto
+    label_singular: Galleria
+    description: Una galleria per ogni uscita o evento. Si possono caricare più foto insieme.
+    folder: src/content/gallerie
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    media_folder: /public/uploads/gallerie/{{slug}}
+    public_folder: /uploads/gallerie/{{slug}}
+    sortable_fields:
+      fields: [date, title]
+      default: { field: date, direction: descending }
+    summary: '{{date | date("DD/MM/YYYY")}} — {{title}}'
+    fields:
+      - { name: title, label: Titolo, widget: string, hint: 'Es. “Gita 21 – Villa Fontana”. La data non serve nel titolo.' }
+      - name: date
+        label: Data
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: DD/MM/YYYY
+        time_format: false
+        default: '{{now}}'
+      - { name: photos, label: Foto, widget: image, multiple: true }
+      - { name: cover, label: 'Foto di copertina (se vuota, la prima)', widget: image, required: false }
+      - { name: bozza, label: 'Bozza (non pubblicare ancora)', widget: boolean, default: false, required: false }
+      - { name: body, label: 'Descrizione (facoltativa)', widget: markdown, required: false }
+
+  # ------------------------------------------------------------------ PAGINE
+  - name: pagine
+    label: Pagine
+    label_singular: Pagina
+    description: Pagine fisse del sito (Società, Regolamento, Contatti…). L’indirizzo è il nome del file.
+    folder: src/content/pagine
+    create: true
+    slug: '{{slug}}'
+    media_folder: /public/uploads/pagine
+    public_folder: /uploads/pagine
+    sortable_fields: [title]
+    fields:
+      - { name: title, label: Titolo, widget: string }
+      - { name: descrizione, label: 'Descrizione (per Google)', widget: text, required: false }
+      - { name: body, label: Testo, widget: markdown }

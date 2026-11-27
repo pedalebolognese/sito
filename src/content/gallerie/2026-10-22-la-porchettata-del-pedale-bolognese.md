@@ -1,0 +1,22 @@
+---
+title: "La Porchettata del Pedale Bolognese"
+date: "2026-10-22"
+cover: "/media/2026/10/IMG_20261022_202301_2.jpg"
+photos:
+  - "/media/2026/10/IMG_20261022_201154.jpg"
+  - "/media/2026/10/IMG_20261022_201155.jpg"
+  - "/media/2026/10/IMG_20261022_201156.jpg"
+  - "/media/2026/10/IMG_20261022_202301_2-scaled.jpg"
+  - "/media/2026/10/IMG_20261022_202840_2-scaled.jpg"
+  - "/media/2026/10/IMG_20261022_213324_2-scaled.jpg"
+  - "/media/2026/10/IMG_20261022_213340_2-scaled.jpg"
+  - "/media/2026/10/IMG_20261022_213359_2-scaled.jpg"
+  - "/media/2026/10/IMG-20261023-WA0007.jpg"
+  - "/media/2026/10/IMG-20261023-WA0008.jpg"
+  - "/media/2026/10/IMG-20261023-WA0009.jpg"
+  - "/media/2026/10/IMG-20261023-WA0010.jpg"
+  - "/media/2026/10/IMG-20261023-WA0011.jpg"
+  - "/media/2026/10/IMG-20261023-WA0012.jpg"
+  - "/media/2026/10/IMG-20261023-WA0015.jpg"
+  - "/media/2026/10/IMG-20261023-WA0016.jpg"
+---

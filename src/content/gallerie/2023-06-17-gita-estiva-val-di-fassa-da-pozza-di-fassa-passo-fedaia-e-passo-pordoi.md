@@ -1,0 +1,22 @@
+---
+title: "Gita Estiva val di Fassa – da Pozza di Fassa, Passo Fedaia e Passo Pordoi"
+date: "2023-06-17"
+cover: "/media/2023/10/IMG_20230617_101905.jpg"
+photos:
+  - "/media/2023/10/IMG_20230617_101905-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_102701-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_112450-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_115108-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_120224.jpg"
+  - "/media/2023/10/IMG_20230617_121207-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_122011-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_131535-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_140413_1.jpg"
+  - "/media/2023/10/IMG_20230617_143943-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_144950-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_144951-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_144952.jpg"
+  - "/media/2023/10/IMG_20230617_161301-scaled.jpg"
+  - "/media/2023/10/IMG_20230617_161302.jpg"
+  - "/media/2023/10/IMG_20230617_184402-scaled.jpg"
+---

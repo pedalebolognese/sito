@@ -1,0 +1,22 @@
+---
+title: "Pedalini a Veggio-Visita a Giordano Turrini medaglia d’argento ‘Velocità su pista’ Olimpiadi 1968"
+date: "2023-08-12"
+cover: "/media/2023/10/IMG_20230812_110625_1.jpg"
+photos:
+  - "/media/2023/10/IMG_20230812_083939_1.jpg"
+  - "/media/2023/10/IMG_20230812_083940_1.jpg"
+  - "/media/2023/10/IMG_20230812_083941_1.jpg"
+  - "/media/2023/10/IMG_20230812_083943-scaled.jpg"
+  - "/media/2023/10/IMG_20230812_083944.jpg"
+  - "/media/2023/10/IMG_20230812_110625_1-scaled.jpg"
+  - "/media/2023/10/IMG_20230812_111410-scaled.jpg"
+  - "/media/2023/10/IMG_20230812_111555-scaled.jpg"
+  - "/media/2023/10/IMG_20230812_111556-scaled.jpg"
+  - "/media/2023/10/IMG_20230812_111604-scaled.jpg"
+  - "/media/2023/10/IMG_20230812_112717-scaled.jpg"
+  - "/media/2023/10/IMG_20230812_112833-scaled.jpg"
+  - "/media/2023/10/IMG_20230812_112857-scaled.jpg"
+  - "/media/2023/10/IMG_20230812_134407.jpg"
+  - "/media/2023/10/IMG_20230812_161731-scaled.jpg"
+  - "/media/2023/10/IMG_20230812_213818-scaled.jpg"
+---

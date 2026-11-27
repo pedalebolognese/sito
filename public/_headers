@@ -1,0 +1,6 @@
+/calendario.ics
+  Content-Type: text/calendar; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/admin/*
+  X-Robots-Tag: noindex

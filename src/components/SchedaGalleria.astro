@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { thumb } from '../lib/media';
+import { dataSmart } from '../lib/format';
+
+interface Props { g: CollectionEntry<'gallerie'>; eager?: boolean }
+const { g, eager = false } = Astro.props;
+const cover = g.data.cover ?? g.data.photos[0];
+---
+<a class="scheda" href={`/galleria/${g.id}/`}>
+  {cover
+    ? <img class="scheda__img" src={thumb(cover)} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" width="480" height="360" />
+    : <div class="scheda__img" />}
+  <div class="scheda__corpo">
+    <span class="scheda__data">{dataSmart(g.data.date, g.data.data_certa)} · {g.data.photos.length} foto</span>
+    <h3>{g.data.title}</h3>
+  </div>
+</a>

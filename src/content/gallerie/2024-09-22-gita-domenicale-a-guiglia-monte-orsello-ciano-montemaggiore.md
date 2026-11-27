@@ -1,0 +1,22 @@
+---
+title: "Gita domenicale a Guiglia, Monte Orsello, Ciano, Montemaggiore"
+date: "2024-09-22"
+cover: "/media/2024/10/IMG_20240922_102520_1.jpg"
+photos:
+  - "/media/2024/10/IMG_20240922_100717_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_100719_1.jpg"
+  - "/media/2024/10/IMG_20240922_100749_1.jpg"
+  - "/media/2024/10/IMG_20240922_102520_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_102605_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_121723_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_122109-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_122111-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_122113_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_122114_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_122116_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_122117_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_122119_1-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_122125-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_122130-scaled.jpg"
+  - "/media/2024/10/IMG_20240922_123945-scaled.jpg"
+---

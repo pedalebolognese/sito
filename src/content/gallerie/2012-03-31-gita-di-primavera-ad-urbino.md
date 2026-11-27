@@ -1,0 +1,23 @@
+---
+title: "Gita di primavera ad Urbino"
+date: "2012-03-31"
+cover: "/media/2017/02/Urbino-2012-0333.jpg"
+photos:
+  - "/media/2017/02/Urbino-2012-0071.jpg"
+  - "/media/2017/02/Urbino-2012-0111.jpg"
+  - "/media/2017/02/Urbino-2012-0131.jpg"
+  - "/media/2017/02/Urbino-2012-015.jpg"
+  - "/media/2017/02/Urbino-2012-016.jpg"
+  - "/media/2017/02/Urbino-2012-018.jpg"
+  - "/media/2017/02/Urbino-2012-0195.jpg"
+  - "/media/2017/02/Urbino-2012-0265.jpg"
+  - "/media/2017/02/Urbino-2012-0285.jpg"
+  - "/media/2017/02/Urbino-2012-0315.jpg"
+  - "/media/2017/02/Urbino-2012-0323.jpg"
+  - "/media/2017/02/Urbino-2012-0333.jpg"
+  - "/media/2017/02/Urbino-2012-0382.jpg"
+  - "/media/2017/02/Urbino-2012-0742.jpg"
+  - "/media/2017/02/Urbino-2012-077.jpg"
+  - "/media/2017/02/Urbino-2012-081.jpg"
+  - "/media/2017/02/Urbino-2012-085.jpg"
+---

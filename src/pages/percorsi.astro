@@ -1,0 +1,131 @@
+---
+// Archivio percorsi: si costruisce da solo dalle uscite inserite nel pannello.
+// Ogni gita compare una volta sola (l'edizione più recente); se ha la traccia GPX,
+// km e dislivello vengono dalla traccia.
+// In più, se è collegato un Foglio Google (PERCORSI_CSV), lo mostra sotto.
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { percorsi as foglioPercorsi } from '../lib/google';
+import { percorsiCompleti } from '../lib/uscite';
+import { pubblicato, data } from '../lib/format';
+import { original } from '../lib/media';
+
+const uscite = (await getCollection('uscite', pubblicato))
+  .filter((u) => u.data.percorsi.length > 0 && !u.data.annullata)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+type Riga = { titolo: string; href: string; localita: string; km?: number; dislivello?: number; quando: Date; gpx?: string; link?: string };
+const righe: Riga[] = [];
+const visti = new Set<string>();
+for (const u of uscite) {
+  const localita = /\*\*Percorso:\*\*\s*(.+)/.exec(u.body ?? '')?.[1].replace(/\(firma\)/gi, '').replace(/\s+,/g, ',').replace(/\.$/, '').trim() ?? '';
+  for (const p of percorsiCompleti(u)) {
+    const nome = p.nome && !/^percorso\b/i.test(p.nome) ? `${u.data.title} – ${p.nome}` : u.data.title;
+    const chiave = nome.toLowerCase();
+    if (visti.has(chiave)) continue;   // tengo solo l'edizione più recente
+    visti.add(chiave);
+    righe.push({ titolo: nome, href: `/uscite/${u.id}/`, localita, km: p.km, dislivello: p.dislivello, quando: u.data.date, gpx: p.gpx, link: p.link });
+  }
+}
+righe.sort((a, b) => a.titolo.localeCompare(b.titolo, 'it'));
+
+const foglio = await foglioPercorsi();
+const isUrl = (s: string) => /^https?:\/\//i.test(s.trim());
+const fascia = (km?: number) => (!km ? '' : km < 70 ? 'corto' : km <= 90 ? 'medio' : 'lungo');
+---
+<Base title="Percorsi" description="L'archivio dei percorsi del Pedale Bolognese, con km, dislivello e tracce GPX.">
+  <div class="contenitore intestazione-pagina">
+    <h1>Archivio percorsi</h1>
+    <p class="muto">I percorsi delle nostre gite. Apri un percorso per vedere mappa e profilo, o scarica la traccia GPX per il ciclocomputer.</p>
+  </div>
+  <div class="contenitore">
+    {righe.length === 0 && !foglio && <p class="avviso">Non ci sono ancora percorsi: si aggiungono inserendo le uscite dal pannello.</p>}
+    {righe.length > 0 && (
+      <>
+        <div class="filtri">
+          <label class="sr-only" for="filtro">Cerca un percorso</label>
+          <input id="filtro" class="filtro" type="search" placeholder="Cerca per nome o località (es. Savigno, Raticosa)…" />
+          <div class="filtri__km" role="group" aria-label="Lunghezza">
+            <button type="button" class="btn btn--bordo attivo" data-fascia="">Tutti</button>
+            <button type="button" class="btn btn--bordo" data-fascia="corto">fino a 70 km</button>
+            <button type="button" class="btn btn--bordo" data-fascia="medio">70–90 km</button>
+            <button type="button" class="btn btn--bordo" data-fascia="lungo">oltre 90 km</button>
+          </div>
+        </div>
+        <div class="tabella-wrap">
+          <table class="tabella" id="archivio">
+            <thead><tr><th>Percorso</th><th>Località</th><th>Km</th><th>Dislivello</th><th>Ultima volta</th><th>Traccia</th></tr></thead>
+            <tbody>
+              {righe.map((r) => (
+                <tr data-fascia={fascia(r.km)}>
+                  <td><a href={r.href}><strong>{r.titolo}</strong></a></td>
+                  <td class="piccolo">{r.localita}</td>
+                  <td>{r.km ?? '—'}</td>
+                  <td>{r.dislivello ? `${r.dislivello} m` : '—'}</td>
+                  <td class="piccolo" style="white-space:nowrap">{data(r.quando)}</td>
+                  <td style="white-space:nowrap">
+                    {r.gpx && <><a href={r.href}>Mappa</a> · <a href={original(r.gpx)} download>GPX</a></>}
+                    {!r.gpx && r.link && <a href={r.link} target="_blank" rel="noopener">Mappa</a>}
+                    {!r.gpx && !r.link && <span class="muto">—</span>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="piccolo muto" id="conteggio"></p>
+      </>
+    )}
+
+    {foglio && (
+      <section style="margin-top:2.5rem">
+        <h2>Altri percorsi</h2>
+        <div class="tabella-wrap">
+          <table class="tabella">
+            <thead><tr>{foglio.intestazioni.map((h) => <th>{h}</th>)}</tr></thead>
+            <tbody>
+              {foglio.righe.map((r) => (
+                <tr>{foglio.intestazioni.map((_, i) => (
+                  <td>{isUrl(r[i] ?? '') ? <a href={r[i].trim()} target="_blank" rel="noopener">Apri</a> : r[i]}</td>
+                ))}</tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+  </div>
+</Base>
+
+<style>
+  .filtri { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1rem; }
+  .filtri .filtro { flex: 1 1 18rem; margin: 0; }
+  .filtri__km { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .filtri__km .btn { padding: 0.35rem 0.8rem; font-size: 0.9rem; }
+  .filtri__km .btn.attivo { background: var(--blu); color: var(--bianco); border-color: var(--blu); }
+</style>
+
+<script>
+  const input = document.querySelector<HTMLInputElement>('#filtro');
+  const bottoni = document.querySelectorAll<HTMLButtonElement>('button[data-fascia]');
+  const righe = document.querySelectorAll<HTMLTableRowElement>('#archivio tbody tr');
+  const conteggio = document.querySelector('#conteggio');
+  let fascia = '';
+  function aggiorna() {
+    const q = (input?.value ?? '').trim().toLowerCase();
+    let n = 0;
+    righe.forEach((tr) => {
+      const ok = (!q || tr.textContent!.toLowerCase().includes(q)) && (!fascia || tr.dataset.fascia === fascia);
+      tr.hidden = !ok;
+      if (ok) n++;
+    });
+    if (conteggio) conteggio.textContent = `${n} percorsi`;
+  }
+  input?.addEventListener('input', aggiorna);
+  bottoni.forEach((b) => b.addEventListener('click', () => {
+    fascia = b.dataset.fascia ?? '';
+    bottoni.forEach((x) => x.classList.toggle('attivo', x === b));
+    aggiorna();
+  }));
+  aggiorna();
+</script>

@@ -1,0 +1,20 @@
+---
+title: "Omaggio al Giro d’Italia da Pian del Falco"
+date: "2016-05-17"
+cover: "/media/2017/02/thumb_IMG_1295_10244.jpg"
+photos:
+  - "/media/2017/02/thumb_IMG_0818_10244.jpg"
+  - "/media/2017/02/thumb_IMG_1295_10244.jpg"
+  - "/media/2017/02/thumb_IMG_1343_1024.jpg"
+  - "/media/2017/02/thumb_IMG_1352_1024.jpg"
+  - "/media/2017/02/thumb_IMG_1355_1024.jpg"
+  - "/media/2017/02/thumb_IMG_1357_1024.jpg"
+  - "/media/2017/02/thumb_IMG_1360_1024.jpg"
+  - "/media/2017/02/thumb_IMG_1376_1024.jpg"
+  - "/media/2017/02/thumb_IMG_1379_1024.jpg"
+  - "/media/2017/02/thumb_IMG_1380_1024.jpg"
+  - "/media/2017/02/thumb_IMG_1384_1024.jpg"
+  - "/media/2017/02/thumb_IMG_1385_10243.jpg"
+  - "/media/2017/02/thumb_IMG_1390_1024.jpg"
+  - "/media/2017/02/thumb_IMG_1468_1024.jpg"
+---

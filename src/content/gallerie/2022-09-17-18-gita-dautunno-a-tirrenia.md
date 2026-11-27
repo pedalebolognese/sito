@@ -1,0 +1,21 @@
+---
+title: "_18 – Gita d’Autunno a Tirrenia"
+date: "2022-09-17"
+cover: "/media/2023/03/09.jpg"
+photos:
+  - "/media/2023/03/01-scaled.jpg"
+  - "/media/2023/03/02-scaled.jpg"
+  - "/media/2023/03/03.jpg"
+  - "/media/2023/03/04.jpg"
+  - "/media/2023/03/05-scaled.jpg"
+  - "/media/2023/03/06-scaled.jpg"
+  - "/media/2023/03/07.jpg"
+  - "/media/2023/03/08.jpg"
+  - "/media/2023/03/09.jpg"
+  - "/media/2023/03/10.jpg"
+  - "/media/2023/03/IMG_20220917_173807-scaled.jpg"
+  - "/media/2023/03/11-scaled.jpg"
+  - "/media/2023/03/12-scaled.jpg"
+  - "/media/2023/03/13-scaled.jpg"
+  - "/media/2023/03/14.jpg"
+---

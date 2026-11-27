@@ -7,6 +7,7 @@ percorsi:
   - nome: "Percorso"
     km: 94
 campionato: true
+galleria: "2026-28-06-gita-14-quinzano"
 ---
 
 **Gita n. 14** del calendario sociale · **56 punti** per il campionato.

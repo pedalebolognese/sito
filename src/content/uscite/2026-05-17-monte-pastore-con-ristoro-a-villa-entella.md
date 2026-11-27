@@ -8,6 +8,7 @@ percorsi:
   - nome: "Percorso"
     km: 90
 campionato: true
+galleria: "2026-05-17-gita-9-monte-pastore-con-rinfresco-a-villa-entella-mathematic-team"
 ---
 
 **Gita n. 9** del calendario sociale · **45 punti** per il campionato.

@@ -7,6 +7,7 @@ percorsi:
   - nome: "Percorso"
     km: 80
 campionato: true
+galleria: "2026-04-10-pedbol-gita-19-dozza-monte-del-re"
 ---
 
 **Gita n. 19** del calendario sociale · **44 punti** per il campionato.

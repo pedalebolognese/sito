@@ -7,6 +7,7 @@ percorsi:
   - nome: "Percorso"
     km: 90
 campionato: true
+galleria: "2026-09-13-pedbol-gita-17-castel-dellalpi"
 ---
 
 **Gita n. 17** del calendario sociale · **50 punti** per il campionato.

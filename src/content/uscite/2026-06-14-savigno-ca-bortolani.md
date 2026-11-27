@@ -8,6 +8,7 @@ percorsi:
   - nome: "Percorso"
     km: 92
 campionato: true
+galleria: "2026-06-14-gita-13-savigno-ca-bortolani-medelana-mongardino"
 ---
 
 **Gita n. 13** del calendario sociale · **46 punti** per il campionato.

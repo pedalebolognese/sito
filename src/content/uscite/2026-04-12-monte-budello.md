@@ -8,6 +8,7 @@ percorsi:
   - nome: "Percorso"
     km: 72
 campionato: true
+galleria: "2026-04-12-gita-5-montebudello"
 ---
 
 **Gita n. 5** del calendario sociale · **36 punti** per il campionato.

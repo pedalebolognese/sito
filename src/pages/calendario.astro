@@ -1,19 +1,29 @@
 ---
+// Calendario: la prossima uscita in evidenza, poi le altre in programma divise per mese.
+// Le uscite già fatte stanno in fondo (chiuse) e nell'archivio per anno (/calendario/2026/).
 import Base from '../layouts/Base.astro';
 import Evento from '../components/Evento.astro';
+import ProssimaUscita from '../components/ProssimaUscita.astro';
 import { prossimiEventi } from '../lib/google';
 import { tutteLeUscite } from '../lib/uscite';
 import { oggi } from '../lib/tempo';
-import { mese } from '../lib/format';
+import { mese, data, anno } from '../lib/format';
 
-// Stagione in corso: le uscite di quest'anno (anche passate) + tutte le future
 const da = oggi();
-const inizioAnno = new Date(Date.UTC(da.getUTCFullYear(), 0, 1));
-const uscite = (await tutteLeUscite()).filter((e) => e.start >= inizioAnno || e.start >= da);
+const finita = (e: { start: Date; end?: Date }) => (e.end ?? e.start) < da;
+const tutte = await tutteLeUscite();
 const google = await prossimiEventi(80);
-const eventi = [...uscite, ...google].sort((a, b) => a.start.getTime() - b.start.getTime());
-const perMese = Map.groupBy(eventi, (e) => mese(e.start));
-const prossima = eventi.find((e) => (e.end ?? e.start) >= da && !e.annullata);
+
+const inProgramma = [...tutte.filter((e) => !finita(e)), ...google].sort((a, b) => a.start.getTime() - b.start.getTime());
+const prossima = inProgramma.find((e) => !e.annullata);
+const altre = inProgramma.filter((e) => e !== prossima);
+const perMese = Map.groupBy(altre, (e) => mese(e.start));
+
+const passate = tutte.filter(finita);
+const annoCorrente = anno(da);
+const fatteQuestAnno = passate.filter((e) => anno(e.start) === annoCorrente).reverse();
+const ultima = passate.at(-1);
+const anni = [...new Set(passate.map((e) => anno(e.start)))].sort((a, b) => b - a);
 
 const icsHttps = new URL('/calendario.ics', Astro.site).href;
 const webcal = icsHttps.replace(/^https:/, 'webcal:');
@@ -24,29 +34,65 @@ const altroCalendario = import.meta.env.PUBLIC_CALENDAR_SUBSCRIBE;
   <div class="stretto intestazione-pagina">
     <h1>Calendario uscite</h1>
     <p class="muto">Il programma può cambiare per meteo o imprevisti: controlla sempre prima di partire.</p>
-    <details class="riquadro" style="margin-top:1rem">
-      <summary style="cursor:pointer; font-weight:600">📅 Aggiungi il calendario al tuo telefono</summary>
+  </div>
+
+  <div class="stretto">
+    {prossima && <ProssimaUscita e={prossima} />}
+
+    {!prossima && (
+      <p class="avviso">
+        {ultima
+          ? <>La stagione {anno(ultima.start)} si è conclusa il {data(ultima.start)}: grazie a tutti! Il nuovo programma sarà pubblicato a breve.</>
+          : <>Il programma della stagione non è ancora stato pubblicato.</>}
+        {anni.length > 0 && <> Intanto puoi rivedere <a href={`/calendario/${anni[0]}/`}>le uscite del {anni[0]}</a>, con le foto.</>}
+      </p>
+    )}
+
+    {altre.length > 0 && <h2 class="sezione-titolo">In programma</h2>}
+    {[...perMese].map(([m, lista]) => (
+      <section>
+        <h3 class="mese">{m}</h3>
+        {lista.map((e) => <Evento e={e} />)}
+      </section>
+    ))}
+
+    <details class="riquadro abbonati">
+      <summary>📅 Aggiungi tutte le uscite al calendario del telefono</summary>
       <p>Le uscite compaiono nel calendario del telefono e si aggiornano da sole quando cambiano.</p>
       <p>
         <a class="btn" href={webcal}>iPhone / Outlook</a>
         <a class="btn btn--bordo" href={googleAdd} target="_blank" rel="noopener">Google Calendar / Android</a>
         {altroCalendario && <a class="btn btn--bordo" href={altroCalendario} target="_blank" rel="noopener">Calendario Google del club</a>}
       </p>
+      <p class="piccolo muto">
+        Google Calendar aggiorna i calendari aggiunti così solo ogni qualche ora: un'uscita nuova o modificata
+        può comparire sul telefono con un po' di ritardo. Su questa pagina il programma è sempre aggiornato.
+      </p>
       <p class="piccolo muto">Oppure copia questo indirizzo nel tuo calendario: <code>{icsHttps}</code></p>
     </details>
-  </div>
-  <div class="stretto">
-    {eventi.length === 0 && (
-      <p class="avviso">
-        Il calendario della stagione non è ancora stato pubblicato. Nel frattempo trovi il programma nella pagina
-        <a href="/programma-ciclistico/">Programma ciclistico</a>.
-      </p>
+
+    {fatteQuestAnno.length > 0 && prossima && (
+      <details class="gia-fatte">
+        <summary>Uscite già fatte nel {annoCorrente} ({fatteQuestAnno.length})</summary>
+        {fatteQuestAnno.map((e) => <Evento e={e} passata />)}
+      </details>
     )}
-    {[...perMese].map(([m, lista]) => (
-      <section>
-        <h2 style="text-transform: capitalize">{m}</h2>
-        {lista.map((e) => <Evento e={e} passata={(e.end ?? e.start) < da && e !== prossima} />)}
-      </section>
-    ))}
+
+    {anni.length > 0 && (
+      <nav class="archivio-anni" aria-label="Archivio uscite">
+        <h2 class="sezione-titolo">Archivio uscite</h2>
+        <p>{anni.map((a, i) => <>{i > 0 && ' · '}<a href={`/calendario/${a}/`}>Stagione {a}</a></>)}</p>
+      </nav>
+    )}
   </div>
 </Base>
+
+<style>
+  .sezione-titolo { margin-top: 2rem; }
+  .mese { text-transform: capitalize; margin: 1.5rem 0 0.25rem; color: var(--grigio); font-size: 1.1rem; letter-spacing: 0.02em; }
+  .abbonati { margin-top: 2.5rem; }
+  .abbonati summary, .gia-fatte summary { cursor: pointer; font-weight: 600; }
+  .gia-fatte { margin-top: 2rem; border-top: 1px solid var(--bordo); padding-top: 1rem; }
+  .gia-fatte[open] summary { margin-bottom: 0.5rem; }
+  .archivio-anni { margin-top: 1rem; }
+</style>

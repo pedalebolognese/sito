@@ -7,6 +7,7 @@ percorsi:
   - nome: "Percorso"
     km: 66
 campionato: true
+galleria: "2026-10-18-ped-bol-gita-21-villa-fontana"
 ---
 
 **Gita n. 21** del calendario sociale · **29 punti** per il campionato.

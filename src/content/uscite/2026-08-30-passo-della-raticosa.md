@@ -8,6 +8,7 @@ percorsi:
     km: 100
     gpx: /uploads/uscite/passo-della-raticosa-esempio.gpx
 campionato: true
+galleria: "2026-08-30-pedbol-gita-15-raticosa"
 ---
 
 **Gita n. 15** del calendario sociale · **66 punti** per il campionato.

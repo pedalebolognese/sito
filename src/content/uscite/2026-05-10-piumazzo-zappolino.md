@@ -8,6 +8,7 @@ percorsi:
   - nome: "Percorso"
     km: 87
 campionato: true
+galleria: "2026-05-10-gita-8-piumazzo"
 ---
 
 **Gita n. 8** del calendario sociale · **44 punti** per il campionato.

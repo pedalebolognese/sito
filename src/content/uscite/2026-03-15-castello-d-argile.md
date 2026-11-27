@@ -7,6 +7,7 @@ percorsi:
   - nome: "Percorso"
     km: 60
 campionato: true
+galleria: "2026-03-15-gita-2-castello-dargile"
 ---
 
 **Gita n. 2** del calendario sociale · **29 punti** per il campionato.

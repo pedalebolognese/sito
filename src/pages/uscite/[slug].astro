@@ -7,6 +7,8 @@ import { original } from '../../lib/media';
 import { usciteToEvento, percorsiCompleti } from '../../lib/uscite';
 import MappaTraccia from '../../components/MappaTraccia.astro';
 import { ora } from '../../lib/format';
+import { linkGoogleCalendar } from '../../lib/ics';
+import { oggi } from '../../lib/tempo';
 
 export async function getStaticPaths() {
   const uscite = await getCollection('uscite', pubblicato);
@@ -18,10 +20,12 @@ const { Content } = await render(u);
 const percorsi = percorsiCompleti(u);
 const galleria = u.data.galleria ? await getEntry('gallerie', u.data.galleria) : undefined;
 const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.location ?? '')}`;
+const futura = (e.end ?? e.start) >= oggi();
+const base = Astro.site?.href.replace(/\/$/, '') ?? '';
 ---
 <Base title={u.data.title} description={`${u.data.tipo} del ${data(u.data.date)}`}>
   <div class="stretto intestazione-pagina">
-    <p class="briciole"><a href="/calendario/">Calendario</a> · {u.data.tipo}</p>
+    <p class="briciole"><a href="/calendario/">Calendario</a>{!futura && <> · <a href={`/calendario/${u.data.date.getUTCFullYear()}/`}>Stagione {u.data.date.getUTCFullYear()}</a></>} · {u.data.tipo}</p>
     <h1>{u.data.title} {u.data.annullata && <span class="etichetta etichetta--rossa">Annullata</span>}</h1>
   </div>
   <div class="stretto">
@@ -32,6 +36,12 @@ const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
       </p>
       <p>📍 <a href={maps} target="_blank" rel="noopener">{e.location}</a></p>
       {u.data.campionato && <p><span class="etichetta">Valida per il campionato sociale</span></p>}
+      {futura && !u.data.annullata && (
+        <p class="azioni-uscita">
+          <a class="btn btn--bordo" href={`/uscite/${u.id}.ics`}>📅 Aggiungi al calendario</a>
+          <a class="btn btn--bordo" href={linkGoogleCalendar(e, base)} target="_blank" rel="noopener">Google Calendar</a>
+        </p>
+      )}
       {percorsi.length > 0 && (
         <table class="tabella" style="margin-top:1rem">
           <thead><tr><th>Percorso</th><th>Km</th><th>Dislivello</th><th>Traccia</th></tr></thead>
@@ -69,3 +79,7 @@ const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
     <p style="margin-top:2rem"><a class="btn btn--bordo" href="/calendario/">← Tutto il calendario</a></p>
   </div>
 </Base>
+
+<style>
+  .azioni-uscita { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+</style>

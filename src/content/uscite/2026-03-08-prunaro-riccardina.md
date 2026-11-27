@@ -7,6 +7,7 @@ percorsi:
   - nome: "Percorso"
     km: 58
 campionato: true
+galleria: "2026-03-08-gita-1-prunaro-riccardina"
 ---
 
 **Gita n. 1** del calendario sociale · **31 punti** per il campionato.

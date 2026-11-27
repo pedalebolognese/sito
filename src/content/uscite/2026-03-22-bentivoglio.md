@@ -7,6 +7,7 @@ percorsi:
   - nome: "Percorso"
     km: 60
 campionato: true
+galleria: "2026-03-22-gita-3-bentivoglio"
 ---
 
 **Gita n. 3** del calendario sociale · **24 punti** per il campionato.

@@ -7,6 +7,7 @@ percorsi:
   - nome: "Percorso"
     km: 90
 campionato: true
+galleria: "2026-06-07-gita-12-monghidoro-campeggio-con-ristoro-a-ca-bassani"
 ---
 
 **Gita n. 12** del calendario sociale · **45 punti** per il campionato.

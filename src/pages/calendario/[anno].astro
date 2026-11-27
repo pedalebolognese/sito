@@ -1,0 +1,85 @@
+---
+// Archivio delle uscite di una stagione: /calendario/2026/
+// Si crea da solo per ogni anno che ha almeno un'uscita già fatta.
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { pubblicato, anno, giorno } from '../../lib/format';
+import { percorsiCompleti, usciteToEvento } from '../../lib/uscite';
+import { oggi } from '../../lib/tempo';
+
+export async function getStaticPaths() {
+  const da = oggi();
+  const uscite = (await getCollection('uscite', pubblicato)).filter((u) => u.data.date < da);
+  const anni = [...new Set(uscite.map((u) => anno(u.data.date)))].sort((a, b) => b - a);
+  return anni.map((a) => ({
+    params: { anno: String(a) },
+    props: {
+      a,
+      anni,
+      uscite: uscite.filter((u) => anno(u.data.date) === a).sort((x, y) => x.data.date.getTime() - y.data.date.getTime()),
+    },
+  }));
+}
+
+interface Props { a: number; anni: number[]; uscite: CollectionEntry<'uscite'>[] }
+const { a, anni, uscite } = Astro.props;
+const gallerie = new Map((await getCollection('gallerie', pubblicato)).map((g) => [g.id, g]));
+
+const righe = uscite.map((u) => {
+  const e = usciteToEvento(u);
+  const p = percorsiCompleti(u);
+  const km = p.map((x) => x.km).filter(Boolean).join(' / ');
+  const dplus = p.map((x) => x.dislivello).filter(Boolean).join(' / ');
+  const g = u.data.galleria ? gallerie.get(u.data.galleria) : undefined;
+  return { u, e, km, dplus, g };
+});
+const gite = righe.filter((r) => r.u.data.campionato && !r.u.data.annullata);
+const kmTotali = gite.reduce((s, r) => s + (percorsiCompleti(r.u)[0]?.km ?? 0), 0);
+const conFoto = righe.filter((r) => r.g).length;
+---
+<Base title={`Uscite ${a}`} description={`Tutte le uscite e le gite del Pedale Bolognese nella stagione ${a}, con le foto.`}>
+  <div class="contenitore intestazione-pagina">
+    <p class="briciole"><a href="/calendario/">Calendario</a> · Archivio</p>
+    <h1>Stagione {a}</h1>
+    <p class="muto">
+      {righe.length} uscite{gite.length > 0 && <>, di cui {gite.length} gite del campionato sociale per circa {kmTotali.toLocaleString('it-IT')} km</>}.
+      {conFoto > 0 && <> Per {conFoto} ci sono le foto: clicca 📷.</>}
+    </p>
+    {anni.length > 1 && (
+      <p class="anni">
+        {anni.map((x) => (x === a ? <strong>{x}</strong> : <a href={`/calendario/${x}/`}>{x}</a>))}
+      </p>
+    )}
+  </div>
+
+  <div class="contenitore">
+    <div class="tabella-wrap">
+      <table class="tabella">
+        <thead>
+          <tr><th>Data</th><th>Uscita</th><th>Tipo</th><th>Km</th><th>Dislivello</th><th>Foto</th></tr>
+        </thead>
+        <tbody>
+          {righe.map(({ u, e, km, dplus, g }) => (
+            <tr class:list={{ annullata: u.data.annullata }}>
+              <td style="white-space:nowrap">{giorno(e.start)}</td>
+              <td>
+                <a href={`/uscite/${u.id}/`}><strong>{u.data.title}</strong></a>
+                {u.data.annullata && <span class="etichetta etichetta--rossa">Annullata</span>}
+              </td>
+              <td class="piccolo">{u.data.tipo}</td>
+              <td>{km || '—'}</td>
+              <td>{dplus ? `${dplus} m` : '—'}</td>
+              <td>{g ? <a href={`/galleria/${g.id}/`} title={g.data.title}>📷 {g.data.photos.length}</a> : <span class="muto">—</span>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:2rem"><a class="btn btn--bordo" href="/calendario/">← Calendario della stagione</a></p>
+  </div>
+</Base>
+
+<style>
+  .anni { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
+  tr.annullata td:nth-child(2) strong { text-decoration: line-through; }
+</style>

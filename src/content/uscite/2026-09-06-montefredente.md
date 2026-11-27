@@ -8,6 +8,7 @@ percorsi:
   - nome: "Percorso"
     km: 110
 campionato: true
+galleria: "2026-09-06-pedbol-gita-16-montefredente"
 ---
 
 **Gita n. 16** del calendario sociale · **61 punti** per il campionato.

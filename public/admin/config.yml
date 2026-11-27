@@ -70,7 +70,7 @@ collections:
       - name: tipo
         label: Tipo
         widget: select
-        options: [Gita domenicale, Gita sociale, Gara / granfondo, Evento, Altro]
+        options: [Gita domenicale, Gita sociale, Extrasociale, Settimana cicloturistica, Con gli amici, Gara / granfondo, Evento, Altro]
         default: Gita domenicale
       - { name: ritrovo, label: 'Luogo di ritrovo', widget: string, required: false, hint: 'Se vuoto: Circolo Il Fossolo, Viale Felsina 52' }
       - name: percorsi

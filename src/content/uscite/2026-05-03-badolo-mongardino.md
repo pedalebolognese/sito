@@ -7,6 +7,7 @@ percorsi:
   - nome: "Percorso"
     km: 76
 campionato: true
+galleria: "2026-05-03-gita-7-mongardino"
 ---
 
 **Gita n. 7** del calendario sociale · **38 punti** per il campionato.

@@ -8,6 +8,7 @@ percorsi:
   - nome: "Percorso"
     km: 80
 campionato: true
+galleria: "2026-10-11-pedbol-gita-20-badolo"
 ---
 
 **Gita n. 20** del calendario sociale · **44 punti** per il campionato.

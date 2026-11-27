@@ -9,7 +9,7 @@ backend:
   # Accesso con nome utente e password, senza account GitHub, tramite
   # Sveltia CMS Additions (worker gratuito su Cloudflare). Vedi README, sezione "Login al pannello".
   auth_type: additions
-  base_url: https://sveltia-cms-additions.TUOSOTTODOMINIO.workers.dev   # TODO: indirizzo del worker
+  base_url: https://sveltia-cms-additions.fcicognani.workers.dev
   commit_messages:
     create: 'Nuovo {{collection}}: {{slug}}'
     update: 'Modifica {{collection}}: {{slug}}'
